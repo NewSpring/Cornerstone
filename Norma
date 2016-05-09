@@ -1,0 +1,30 @@
+"name": "cornerstone"
+
+"tasks":
+
+  "less":
+    "endpoint": "NewSpring/norma-less"
+    "src": "./.source/Styles/**/[^_]*"
+    "dest": "./Styles"
+
+  "copy":
+    "src": "./.source/Assets/**/*"
+    "dest": "./Assets"
+
+  "lava":
+    "@extend": "copy"
+    "src": "./.source/Lava/**/*"
+    "dest": "./Assets/Lava"
+
+  "layouts":
+    "@extend": "copy"
+    "src": "./.source/Layouts/**/*"
+    "dest": "./Layouts"
+
+  "javascript":
+    "src": "./.source/Javascripts/**/*"
+    "dest": "./Assets/Scripts"
+
+  "livereload":
+    endpoint: "NewSpring/norma-livereload"
+    dev: true
