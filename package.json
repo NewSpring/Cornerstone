@@ -9,6 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "norma-copy": "^0.4.6",
     "norma-javascript": "^0.4.10",
     "norma-less": "github:newspring/norma-less",
     "norma-markup": "^0.5.7"
