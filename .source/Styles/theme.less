@@ -35,15 +35,29 @@ main {
     display: block;
 }
 
-// 2. Bootstrap Overrides
-// -------------------------
-
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0px;
 }
 
 h1, h2, h3, h4, h5, h6, p, ul, ol {
-    margin-bottom: @spacing-lg-px;
+    margin-bottom: @spacing-md-px;
+}
+
+ul {
+    padding-left: @spacing-lg-px/3*2;
+}
+
+// 2. Bootstrap Overrides
+// -------------------------
+
+.container, .container-fluid {
+    padding: @spacing-lg-px*2 @spacing-lg-px*1.5 @spacing-lg-px*1.5;
+}
+
+.btn {
+    font-weight: 700;
+    padding: 8px 18px;
+    border-width: 0;
 }
 
 .navbar {
@@ -64,6 +78,10 @@ a:hover i.fs {
 
 // 3. Theme Styling
 // -------------------------
+.wrapper {
+    max-width: 1680px;
+    margin: 0 auto;
+}
 
 .flush {
     margin: 0px;
@@ -92,6 +110,27 @@ a:hover i.fs {
 .background--fill {
     background-size: cover;
     background-position: center;
+}
+
+.bg-primary { 
+    background-color: @primary-color;
+
+    .btn {
+        background-color: darken(@primary-color, 20%);
+        color: @light-color;
+
+        &:hover {
+            background-color: darken(@primary-color, 25%)
+        }
+    }
+}
+
+.bg-dark { 
+    background-color: @dark-color; 
+}
+
+.bg-medium { 
+    background-color: @medium-color; 
 }
 
 .page-icon {
