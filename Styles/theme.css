@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900,100italic,300italic,400italic,500italic,700italic,900italic);
 /*
 
   Rock's Core CSS
@@ -709,7 +710,7 @@ a.aspNetDisabled {
 }
 .form-group {
   font-size: 18px;
-  line-height: 1.42857143;
+  line-height: 1.5;
 }
 .form-group .checkbox:last-child {
   margin-bottom: 30px;
@@ -5047,7 +5048,7 @@ ul.list-group-panel .list-group-item:first-child,
   min-height: 24px !important;
   font-weight: 600 !important;
   font-size: 24px !important;
-  font-family: 'OpenSans', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
 }
 .cke_dialog_close_button {
   background-image: none !important;
@@ -5060,7 +5061,7 @@ ul.list-group-panel .list-group-item:first-child,
   color: #f89734 !important;
   font-weight: 700 !important;
   font-size: 20px !important;
-  font-family: 'OpenSans', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
   margin-top: 8px;
 }
 .cke_dialog_close_button .cke_label:after {
@@ -5090,7 +5091,7 @@ a.cke_dialog_ui_button:active {
   border-radius: 4px;
   text-shadow: none !important;
   padding: 6px 2px !important;
-  font-family: 'OpenSans', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
   font-size: 18px !important;
 }
 a.cke_dialog_ui_button span {
@@ -5948,6 +5949,25 @@ html {
 main {
   display: block;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  margin-bottom: 30px;
+}
 .navbar {
   position: static;
 }
@@ -5971,6 +5991,24 @@ a:hover i.fs {
 }
 .soft {
   padding: 30px;
+}
+.soft--ends {
+  padding: 30px 0 30px;
+}
+.soft--sides {
+  padding: 0 30px 0;
+}
+.soft--top {
+  padding-top: 30px;
+}
+.soft--right {
+  padding-right: 30px;
+}
+.soft--bottom {
+  padding-bottom: 30px;
+}
+.soft--left {
+  padding-left: 30px;
 }
 .background--fill {
   background-size: cover;
