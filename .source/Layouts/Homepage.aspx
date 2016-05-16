@@ -18,6 +18,25 @@
 </section>
 
 <section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 text-center" style="background: red;">
+        <div class="soft">
+          <h2>Venue</h2>
+          <p>Bacon ipsum dolor amet flank sirloin doner, kielbasa frankfurter short ribs pork loin cupim tri-tip hamburger t-bone prosciutto pastrami. Boudin picanha hamburger, leberkas sausage landjaeger tri-tip.</p>
+        </div>
+      </div>
+      <div class="col-md-6 text-center" style="background: green;">
+        <div class="soft">
+          <h2>Travel</h2>
+          <p>Bacon ipsum dolor amet flank sirloin doner, kielbasa frankfurter short ribs pork loin cupim tri-tip hamburger t-bone prosciutto pastrami. Boudin picanha hamburger, leberkas sausage landjaeger tri-tip.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
     <div class="container">
         <div class="row">
             <div class="col-md-8 center-block pull-none">
