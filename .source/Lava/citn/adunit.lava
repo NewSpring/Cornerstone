@@ -1,0 +1,11 @@
+<!-- 
+
+{% assign heading = "Foo" %}
+{% include '/Themes/CITN/Assets/Lava/citn/adunit.lava' %} 
+
+-->
+<section style="background: #ddd;">
+	<div class="container">
+		<h2>{{ heading }}</h2>
+	</div>
+</section>

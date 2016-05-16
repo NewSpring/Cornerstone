@@ -2,21 +2,56 @@
 
 <asp:Content ID="ctFeature" ContentPlaceHolderID="feature" runat="server">
 
-    <section class="main-feature">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <Rock:Zone Name="Feature" runat="server" />
+<!-- Ad Unit -->
+<section class="background--fill" style="background-color: #ddd; background-image: url('//dg0ddngxdz549.cloudfront.net/images/cached/images/remote/http_s3.amazonaws.com/ns.images/newspring/fpo/fpo.KidSpring.Hallway_1700_850_90_c1.jpg');">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 center-block pull-none text-center">
+                <div class="soft">
+                    <h2>Heading Byline</h2>
+                    <p>Lorem ipsum Voluptate labore in Excepteur ea cupidatat eiusmod et dolor ullamco culpa labore consectetur eu dolor non sunt dolore amet sint reprehenderit sint aliqua.</p>
+                    <p><a class="btn btn-default" href="#" role="button">Learn More</a></p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 center-block pull-none">
+                <div class="soft">
+                    <h1>This is an h1 Heading</h1>
+                    <h2>This is an h2 Heading</h2>
+                    <h3>This is an h3 Heading</h3>
+                    <p>Lorem ipsum Voluptate labore in Excepteur ea cupidatat eiusmod et dolor ullamco culpa labore consectetur eu dolor non sunt dolore amet sint reprehenderit sint aliqua.</p>
+                    <ul>
+                        <li>Lorem ipsum Velit fugiat ut deserunt reprehenderit adipisicing.</li>
+                        <li>Lorem ipsum Sit in eu consequat Duis.</li>
+                        <li>Lorem ipsum Esse culpa sed in dolore.</li>
+                        <li>Lorem ipsum Elit voluptate occaecat est commodo.</li>
+                        <li>Lorem ipsum Consectetur quis et enim non nisi.</li>
+                    </ul>
+                    <p>Lorem ipsum Dolor laboris eu in deserunt eu irure Duis anim in in consectetur nostrud fugiat in commodo.</p>
+                    <h4>This is an h4 Heading</h4>
+                    <h5>This is an h5 Heading</h5>
+                    <h6>This is an h6 Heading</h6>
+                    <p>Lorem ipsum Exercitation dolore ut ad consequat nulla quis cillum esse eu sunt quis nostrud veniam eiusmod nisi in tempor est proident cillum consequat fugiat nulla nisi nisi Ut consectetur ad nisi aliqua voluptate ut consequat elit laboris ullamco dolor deserunt.</p>
+                    <p><a class="btn btn-default" href="#" role="button">Learn More</a> <a class="btn btn-primary" href="#" role="button">Learn More</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<Rock:Zone Name="Feature" runat="server" />
 
 </asp:Content>
 
 <asp:Content ID="ctMain" ContentPlaceHolderID="main" runat="server">
     
-	<main class="container">
+    <main class="container">
         
         <!-- Start Content Area -->
         
@@ -52,7 +87,7 @@
 
         <!-- End Content Area -->
 
-	</main>
+    </main>
         
 </asp:Content>
 
