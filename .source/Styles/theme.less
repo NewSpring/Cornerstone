@@ -39,6 +39,10 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 0px;
 }
 
+h2, h3, h4, h5, h6 {
+    letter-spacing: -1px;
+}
+
 h1, h2, h3, h4, h5, h6, p, ul, ol {
     margin-bottom: @spacing-md-px;
 }
@@ -50,8 +54,8 @@ ul {
 // 2. Bootstrap Overrides
 // -------------------------
 
-.container, .container-fluid {
-    padding: @spacing-lg-px*2 @spacing-lg-px*1.5 @spacing-lg-px*1.5;
+.shell {
+    padding: @spacing-lg-px @spacing-lg-px/2 @spacing-lg-px/2;
 }
 
 .btn {
@@ -87,25 +91,25 @@ a:hover i.fs {
     margin: 0px;
 }
 
-.hard { padding: 0; }
-.hard--ends { padding-top: 0; padding-bottom: 0; }
-.hard--sides { padding-left: 0; padding-right: 0; }
-.hard--top { padding-top: 0; }
-.hard--right { padding-right: 0; }
-.hard--bottom { padding-bottom: 0; }
-.hard--left { padding-left: 0; }
+.hard { padding: 0 !important; }
+.hard--ends { padding-top: 0 !important; padding-bottom: 0 !important; }
+.hard--sides { padding-left: 0 !important; padding-right: 0 !important; }
+.hard--top { padding-top: 0 !important; }
+.hard--right { padding-right: 0 !important; }
+.hard--bottom { padding-bottom: 0 !important; }
+.hard--left { padding-left: 0 !important; }
 
 .pull-none {
     float: none !important;
 }
 
-.soft { padding: @spacing-lg-px; }
-.soft--ends { padding: @spacing-lg-px 0 @spacing-lg-px; }
-.soft--sides { padding: 0 @spacing-lg-px 0; }
-.soft--top { padding-top: @spacing-lg-px; }
-.soft--right { padding-right: @spacing-lg-px; }
-.soft--bottom { padding-bottom: @spacing-lg-px; }
-.soft--left { padding-left: @spacing-lg-px; }
+.soft { padding: @spacing-lg-px !important; }
+.soft--ends { padding: @spacing-lg-px 0 @spacing-lg-px !important; }
+.soft--sides { padding: 0 @spacing-lg-px 0 !important; }
+.soft--top { padding-top: @spacing-lg-px !important; }
+.soft--right { padding-right: @spacing-lg-px !important; }
+.soft--bottom { padding-bottom: @spacing-lg-px !important; }
+.soft--left { padding-left: @spacing-lg-px !important; }
 
 .background--fill {
     background-size: cover;
@@ -114,23 +118,33 @@ a:hover i.fs {
 
 .bg-primary { 
     background-color: @primary-color;
-
-    .btn {
-        background-color: darken(@primary-color, 20%);
-        color: @light-color;
-
-        &:hover {
-            background-color: darken(@primary-color, 25%)
-        }
-    }
 }
 
 .bg-dark { 
-    background-color: @dark-color; 
+    background-color: @dark-color;
+    color: @light-color;
 }
 
 .bg-medium { 
     background-color: @medium-color; 
+}
+
+a {
+    text-decoration: underline;
+}
+
+a.btn {
+    text-decoration: none;
+}
+
+.btn-dark {
+    color: @light-color;
+    background-color: @dark-color;
+
+    &:hover {
+        background-color: darken(@dark-color, 5%);
+        color: @light-color;
+    }
 }
 
 .page-icon {
@@ -257,6 +271,9 @@ footer {
 
 // Medium devices (desktops, 992px and up)
 @media (min-width: @screen-md-min) {
+    .shell {
+        padding: @spacing-lg-px*1.5 @spacing-lg-px @spacing-lg-px;
+    }
 }
 
 // Large devices (large desktops, 1200px and up)
