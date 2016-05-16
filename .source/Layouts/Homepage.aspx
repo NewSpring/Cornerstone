@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 center-block pull-none text-center">
-                <div class="soft">
+                <div class="soft--top">
                     <h2>Heading Byline</h2>
                     <p>Lorem ipsum Voluptate labore in Excepteur ea cupidatat eiusmod et dolor ullamco culpa labore consectetur eu dolor non sunt dolore amet sint reprehenderit sint aliqua.</p>
                     <p><a class="btn btn-default" href="#" role="button">Learn More</a></p>
