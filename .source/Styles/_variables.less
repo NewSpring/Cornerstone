@@ -1,5 +1,10 @@
 
 // Theme Colors *open*
+@primary-color: #F89734;
+@dark-color: #000;
+@light-color: #fff;
+@medium-color: #f1f2f2;
+
 @theme-1: #F89734; // CITN Brand Color
 @theme-1-text: #fff;
 //--
@@ -37,14 +42,12 @@
 @line-height-base:        1.5; // The default line height.
 
 //// Heading Sizes
-@font-size-h1:            floor(@font-size-base * 3.60); // ~36px
-@font-size-h2:            floor(@font-size-base * 2.45); // ~30px
-@font-size-h3:            ceil(@font-size-base * 1.39); // ~24px
-@font-size-h4:            ceil(@font-size-base * 1.25); // ~18px
-@font-size-h5:            @font-size-base;
-@font-size-h6:            ceil(@font-size-base * 0.85); // ~12px
-
-@font-weight-h1:          900;
+@font-size-h1:            floor(@font-size-base * 3.30);
+@font-size-h2:            floor(@font-size-base * 2.35);
+@font-size-h3:            ceil(@font-size-base * 2);
+@font-size-h4:            ceil(@font-size-base * 1.75);
+@font-size-h5:            ceil(@font-size-base * 1.55);
+@font-size-h6:            ceil(@font-size-base * 1.25);
 
 // Bootstrap Colors
 
@@ -163,6 +166,7 @@
 // Grid
 @grid-border-color: #ddd;   // The border color of the grids cells.
 @grid-padding: 8px;         // The default padding of the grid cells.
+@grid-gutter-width: 60px;
 
 //// Filter Section
 @grid-filter-bg: @panel-heading-bg;        // The background color of the filter section of the grid.
@@ -328,8 +332,8 @@
 @btn-font-weight:                normal;
 //--
 @btn-default-color:              #333;
-@btn-default-bg:                 #fff;
-@btn-default-border:             darken(@body-bg, 20%);
+@btn-default-bg:                 #f5f5f5;
+@btn-default-border:             #f5f5f5;
 //--
 @btn-primary-color:              #fff;
 @btn-primary-bg:                 @brand-primary;

@@ -3,15 +3,49 @@
 <asp:Content ID="ctFeature" ContentPlaceHolderID="feature" runat="server">
 
 <!-- Ad Unit -->
-<section class="background--fill" style="background-color: #ddd; background-image: url('//dg0ddngxdz549.cloudfront.net/images/cached/images/remote/http_s3.amazonaws.com/ns.images/newspring/fpo/fpo.KidSpring.Hallway_1700_850_90_c1.jpg');">
-    <div class="container-fluid">
+<section>
+    <div class="container-fluid background--fill" style="background-color: #ddd; background-image: url('//dg0ddngxdz549.cloudfront.net/images/cached/images/remote/http_s3.amazonaws.com/ns.images/newspring/fpo/fpo.KidSpring.Hallway_1700_850_90_c1.jpg');">
         <div class="row">
             <div class="col-md-6 center-block pull-none text-center">
-                <div class="soft">
-                    <h2>Heading Byline</h2>
-                    <p>Lorem ipsum Voluptate labore in Excepteur ea cupidatat eiusmod et dolor ullamco culpa labore consectetur eu dolor non sunt dolore amet sint reprehenderit sint aliqua.</p>
-                    <p><a class="btn btn-default" href="#" role="button">Learn More</a></p>
-                </div>
+                <h1>Heading Byline</h1>
+                <p>Lorem ipsum Voluptate labore in Excepteur ea cupidatat eiusmod et dolor ullamco culpa labore consectetur eu dolor non sunt dolore amet sint reprehenderit sint aliqua.</p>
+                <p><a class="btn btn-default" href="#" role="button">Learn More</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Heading Byline</h2>
+                <p>Lorem ipsum Voluptate labore in Excepteur ea cupidatat eiusmod et dolor ullamco culpa labore consectetur eu dolor non sunt dolore amet sint reprehenderit sint aliqua.</p>
+                <p><a class="btn btn-primary" href="#" role="button">Learn More</a><a class="btn btn-link" href="#" role="button">Learn More</a></p>
+            </div><div class="col-md-6">
+                <h2>Heading Byline</h2>
+                <p>Lorem ipsum Voluptate labore in Excepteur ea cupidatat eiusmod et dolor ullamco culpa labore consectetur eu dolor non sunt dolore amet sint reprehenderit sint aliqua.</p>
+                <p><a class="btn btn-primary" href="#" role="button">Learn More</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-primary">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Heading Byline</h2>
+                <p>Lorem ipsum Voluptate labore in Excepteur ea cupidatat eiusmod et dolor ullamco culpa labore consectetur eu dolor non sunt dolore amet sint reprehenderit sint aliqua.</p>
+                <p><a class="btn" href="#" role="button">Learn More</a></p>
+            </div><div class="col-md-4">
+                <h2>Heading Byline</h2>
+                <p>Lorem ipsum Voluptate labore in Excepteur ea cupidatat eiusmod et dolor ullamco culpa labore consectetur eu dolor non sunt dolore amet sint reprehenderit sint aliqua.</p>
+                <p><a class="btn" href="#" role="button">Learn More</a></p>
+            </div><div class="col-md-4">
+                <h2>Heading Byline</h2>
+                <p>Lorem ipsum Voluptate labore in Excepteur ea cupidatat eiusmod et dolor ullamco culpa labore consectetur eu dolor non sunt dolore amet sint reprehenderit sint aliqua.</p>
+                <p><a class="btn" href="#" role="button">Learn More</a></p>
             </div>
         </div>
     </div>
@@ -80,29 +114,11 @@
             <span class="ajax-error-message"></span>
         </div>
 
-        <div class="row">
-            <div class="col-md-12">
-                <Rock:Zone Name="Sub Feature" runat="server" />
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <Rock:Zone Name="Section A" runat="server" />
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4">
-                <Rock:Zone Name="Section B" runat="server" />
-            </div>
-            <div class="col-md-4">
-                <Rock:Zone Name="Section C" runat="server" />
-            </div>
-            <div class="col-md-4">
-                <Rock:Zone Name="Section D" runat="server" />
-            </div>
-        </div>
+        <Rock:Zone Name="Sub Feature" runat="server" />
+        <Rock:Zone Name="Section A" runat="server" />
+        <Rock:Zone Name="Section B" runat="server" />
+        <Rock:Zone Name="Section C" runat="server" />
+        <Rock:Zone Name="Section D" runat="server" />
 
         <!-- End Content Area -->
 

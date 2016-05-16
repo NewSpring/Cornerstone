@@ -52,12 +52,14 @@
 
     <form id="form1" runat="server">
 
+        <div class="wrapper">
+
         <!-- Page Header -->
         <header>
         
             <!-- Brand Bar -->
             <nav class="navbar navbar-inverse navbar-static-top flush">
-                <div class="container">
+                <div class="container-fluid hard--ends">
                     <div class="navbar-header">
                         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                             <i class="fa fa-bars"></i>
@@ -93,6 +95,8 @@
 
             </div>
         </footer>
+
+        </div>
         
         <%-- controls for scriptmanager and update panel --%>
         <asp:ScriptManager ID="sManager" runat="server"/>
