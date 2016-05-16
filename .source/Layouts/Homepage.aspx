@@ -52,7 +52,7 @@
 </section>
 
 <section>
-  <div class="container-fluid">
+  <div class="container-fluid hard-ends">
     <div class="row">
       <div class="col-md-6 text-center" style="background: red;">
         <div class="soft">
