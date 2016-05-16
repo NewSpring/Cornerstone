@@ -38,6 +38,14 @@ main {
 // 2. Bootstrap Overrides
 // -------------------------
 
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0px;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol {
+    margin-bottom: @spacing-lg-px;
+}
+
 .navbar {
     position: static; // default is relative which causes the dropdowns to go under the other navbars dispite having a higher z-index - JME 9/9/2013
     // using fontawesome nav toggle button instead of the BS default
@@ -69,9 +77,13 @@ a:hover i.fs {
     float: none !important;
 }
 
-.soft {
-    padding: @spacing-lg-px;
-}
+.soft { padding: @spacing-lg-px; }
+.soft--ends { padding: @spacing-lg-px 0 @spacing-lg-px; }
+.soft--sides { padding: 0 @spacing-lg-px 0; }
+.soft--top { padding-top: @spacing-lg-px; }
+.soft--right { padding-right: @spacing-lg-px; }
+.soft--bottom { padding-bottom: @spacing-lg-px; }
+.soft--left { padding-left: @spacing-lg-px; }
 
 .background--fill {
     background-size: cover;
