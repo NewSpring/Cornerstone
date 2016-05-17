@@ -64,17 +64,25 @@
     <div class="shell hard">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-6 text-center" style="background: red;">
-                    <div class="soft">
+                <div class="col-md-6 text-center hard">
+                  <div class="ratio--landscape ratio--disabled@mobile">
+                    <div class="ratio__item floating background--fill" style="background-image: url(//dg0ddngxdz549.cloudfront.net/images/cached/images/remote/http_dg0ddngxdz549.cloudfront.net/newspringnetwork/travel/network.hotel.ad_2x1_1000_501_90_c1.jpg);">
+                      <div class="soft floating__item">
                         <h2>Venue</h2>
                         <p>Bacon ipsum dolor amet flank sirloin doner, kielbasa frankfurter short ribs pork loin cupim tri-tip hamburger t-bone prosciutto pastrami. Boudin picanha hamburger, leberkas sausage landjaeger tri-tip.</p>
+                      </div>
                     </div>
+                  </div>
                 </div>
-                <div class="col-md-6 text-center" style="background: green;">
-                    <div class="soft">
+                <div class="col-md-6 text-center hard">
+                  <div class="ratio--landscape">
+                    <div class="ratio__item background--fill floating" style="background-image: url(//dg0ddngxdz549.cloudfront.net/images/cached/images/remote/http_dg0ddngxdz549.cloudfront.net/newspringnetwork/travel/network.travel.ad_2x1_1000_500_90_c1.jpg);">
+                      <div class="soft floating__item">
                         <h2>Travel</h2>
                         <p>Bacon ipsum dolor amet flank sirloin doner, kielbasa frankfurter short ribs pork loin cupim tri-tip hamburger t-bone prosciutto pastrami. Boudin picanha hamburger, leberkas sausage landjaeger tri-tip.</p>
+                      </div>
                     </div>
+                  </div>
                 </div>
             </div>
         </div>
