@@ -65,6 +65,14 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6 text-center hard">
+                  {% assign ratio = "landcape" %}
+                  {% assign imageUrl = "Foo" %}
+                  {% assign heading = "Foo" %}
+                  {% capture body %}
+                    Bar
+                  {% endcapture %}
+
+                  {% include '/Themes/CITN/Assets/Lava/citn/image.lava' %}
                   <div class="ratio--landscape ratio--disabled@mobile">
                     <div class="ratio__item floating background--fill" style="background-image: url(//dg0ddngxdz549.cloudfront.net/images/cached/images/remote/http_dg0ddngxdz549.cloudfront.net/newspringnetwork/travel/network.hotel.ad_2x1_1000_501_90_c1.jpg);">
                       <div class="soft floating__item">

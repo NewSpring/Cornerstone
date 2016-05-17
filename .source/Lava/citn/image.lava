@@ -1,0 +1,78 @@
+{% comment %}
+
+  {% assign ratio = "landscape" %}
+  {% assign imageUrl = "Foo" %}
+  {% assign heading = "Foo" %}
+  {% capture body %}
+    Bar
+  {% endcapture %}
+  {% assign linkUrl = "//google.com" %}
+  {% assign linkText = "Learn More" %}
+  {% assign linkType = "primary" %}
+  {% assign linkDisplay = true %}
+
+  {% include '/Themes/CITN/Assets/Lava/citn/image.lava' %}
+  
+  {% capture jsonString %}
+  {
+    "Name": "Ted Decker",
+    "ServingTimes": [
+      {
+        "Date": "Friday 3/25",
+        "Times": [
+          "5:30 pm",
+          "7:00 pm"
+        ]
+      },
+      {
+        "Date": "Saturday 3/26",
+        "Times": [
+          "4:30 pm",
+          "6:00 pm"
+        ]
+      },
+      {
+        "Date": "Sunday 3/27",
+        "Times": [
+          "6:30 am sunrise",
+          "9:00 am",
+          "10:30 am",
+          "12:00 pm"
+        ]
+      }
+      ]
+  }
+  {% endcapture %}
+
+
+  {% assign jsonObject = jsonString | FromJSON %}
+
+  {{ jsonObject.Name }}
+
+{% endcomment %}
+
+{% if linkUrl %}
+  <a href="{{ linkUrl }}">
+{% endif %}
+
+  <div class="ratio--{{ ratio }}">
+    <div class="ratio__item floating background--fill" style="background-image: url({{ imageUrl }});">
+      {% if heading or body or linkDisplay %}
+        <div class="soft floating__item">
+          {% if heading %}
+            <h2{% if body or linkDisplay %}{% else %} class="flush"{% endif %}>{{ heading }}</h2>
+          {% endif %}
+          {% if body %}
+            <p>{{ body }}</p>
+          {% endif %}
+          {% if linkUrl and linkDisplay %}
+            <p class="{% if linkClass %}{{ linkClass }}{% else %}btn btn-link{% endif %}">{% if linkText %}{{ linkText }}{% else %} Learn More{% endif %}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  
+{% if linkUrl %}
+  </a>
+{% endif %}
