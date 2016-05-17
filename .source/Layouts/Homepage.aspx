@@ -4,11 +4,11 @@
 
 <!-- Ad Unit -->
 <section>
-    <div class="shell background--fill" style="background-color: #ddd; background-image: url('//dg0ddngxdz549.cloudfront.net/images/cached/images/remote/http_s3.amazonaws.com/ns.images/newspring/fpo/fpo.KidSpring.Hallway_1700_850_90_c1.jpg');">
-        <div class="container-fluid">
+    <div class="shell overlay--light overlay--gradient background--fill" style="background-color: #ddd; background-image: url('//dg0ddngxdz549.cloudfront.net/images/cached/images/remote/http_s3.amazonaws.com/ns.images/newspring/fpo/fpo.KidSpring.Hallway_1700_850_90_c1.jpg');">
+        <div class="container-fluid overlay__item">
             <div class="row">
-                <div class="col-md-6 center-block pull-none text-center">
-                    <h1>Heading Byline</h1>
+                <div class="col-md-8 center-block pull-none text-center">
+                    <h1>What is the Church IT Network?</h1>
                     <p>Lorem ipsum Voluptate labore in Excepteur ea cupidatat eiusmod et dolor ullamco culpa labore consectetur eu dolor non sunt dolore amet sint reprehenderit sint aliqua.</p>
                     <p><a class="btn btn-default" href="#" role="button">Learn More</a></p>
                 </div>
@@ -43,17 +43,17 @@
                 <div class="col-md-4">
                     <h2>Heading Byline</h2>
                     <p>Lorem ipsum Voluptate labore in Excepteur ea cupidatat eiusmod et dolor ullamco culpa labore consectetur eu dolor non sunt dolore amet sint reprehenderit sint aliqua.</p>
-                    <p><a class="btn btn-dark" href="#" role="button">Learn More</a></p>
+                    <p><a class="btn btn-secondary" href="#" role="button">Learn More</a></p>
                 </div>
                 <div class="col-md-4">
                     <h2>Heading Byline</h2>
                     <p>Lorem ipsum Voluptate labore in Excepteur ea cupidatat eiusmod et dolor ullamco culpa labore consectetur eu dolor non sunt dolore amet sint reprehenderit sint aliqua.</p>
-                    <p><a class="btn btn-dark" href="#" role="button">Learn More</a></p>
+                    <p><a class="btn btn-secondary" href="#" role="button">Learn More</a></p>
                 </div>
                 <div class="col-md-4">
                     <h2>Heading Byline</h2>
                     <p>Lorem ipsum Voluptate labore in Excepteur ea cupidatat eiusmod et dolor ullamco culpa labore consectetur eu dolor non sunt dolore amet sint reprehenderit sint aliqua.</p>
-                    <p><a class="btn btn-dark" href="#" role="button">Learn More</a></p>
+                    <p><a class="btn btn-secondary" href="#" role="button">Learn More</a></p>
                 </div>
             </div>
         </div>

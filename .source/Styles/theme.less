@@ -37,10 +37,7 @@ main {
 
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0px;
-}
-
-h2, h3, h4, h5, h6 {
-    letter-spacing: -1px;
+    letter-spacing: 0px;
 }
 
 h1, h2, h3, h4, h5, h6, p, ul, ol {
@@ -55,7 +52,7 @@ ul {
 // -------------------------
 
 .shell {
-    padding: @spacing-lg-px @spacing-lg-px/2 @spacing-lg-px/2;
+    padding: @spacing-lg-px @spacing-lg-px @spacing-lg-px/2;
 }
 
 .btn {
@@ -82,10 +79,6 @@ a:hover i.fs {
 
 // 3. Theme Styling
 // -------------------------
-.wrapper {
-    max-width: 1680px;
-    margin: 0 auto;
-}
 
 .flush {
     margin: 0px;
@@ -116,6 +109,59 @@ a:hover i.fs {
     background-position: center;
 }
 
+.overlay--light {
+    *:not(.btn) {
+        color: @light-color;
+    }
+}
+
+.overlay--gradient {
+    position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,1+100 */
+        background: -moz-linear-gradient(top,  rgba(0,0,0,.3) 0%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  rgba(0,0,0,.3) 0%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  rgba(0,0,0,.3) 0%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+        opacity: .7;
+    }
+}
+
+.overlay--solid, .overlay--solid-dark {
+    position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(25,25,25,1);
+        opacity: .5;
+    }
+}
+
+.overlay--solid-dark {
+    &:after {
+        opacity: .8;
+    }
+}
+
+.overlay__item {
+    position: relative;
+    z-index: 1;
+}
+
+
+// Background Classes
 .bg-primary { 
     background-color: @primary-color;
 }
@@ -129,11 +175,13 @@ a:hover i.fs {
     background-color: @medium-color; 
 }
 
+
+// Links & Buttons
 a {
     text-decoration: underline;
 }
 
-a.btn {
+.btn {
     text-decoration: none;
 }
 
@@ -143,6 +191,16 @@ a.btn {
 
     &:hover {
         background-color: darken(@dark-color, 5%);
+        color: @light-color;
+    }
+}
+
+.btn-secondary {
+    color: @light-color;
+    background-color: darken(@primary-color, 20%);
+
+    &:hover {
+        background-color: darken(@primary-color, 25%);
         color: @light-color;
     }
 }
@@ -272,7 +330,7 @@ footer {
 // Medium devices (desktops, 992px and up)
 @media (min-width: @screen-md-min) {
     .shell {
-        padding: @spacing-lg-px*1.5 @spacing-lg-px @spacing-lg-px;
+        padding: @spacing-lg-px*1.5 @spacing-lg-px*1.5 @spacing-lg-px;
     }
 }
 
