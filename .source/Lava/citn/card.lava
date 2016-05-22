@@ -42,7 +42,7 @@
     
     {% if card.imageUrl != "" %}
     
-      <div class="card soft--half--top">
+      <div class="card soft-half--top">
       
     {% endif %}
     
