@@ -37,7 +37,7 @@
 >
   <div class="shell">
     <div class="row{% if adUnit.overlayClass != '' %} {{ adUnit.overlayClass }}{% endif %}">
-      <div class="col-md-8 center-block pull-none text-{% if adUnit.alignment != '' %}{{ adUnit.alignment }}{% else %}center{% endif %}{% if adUnit.overlayClass != '' %} overlay__item{% endif %}">
+      <div class="col-md-8 pull-none {% if adUnit.alignment == 'right' %} text-left right-block{% elseif adUnit.alignment != 'left' %}center-block text-center{% endif %}{% if adUnit.overlayClass != '' %} overlay__item{% endif %}">
         {% if adUnit.heading != "" %}
           <h2 class="push-quarter--bottom">
             {{ adUnit.heading }}
