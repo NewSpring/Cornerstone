@@ -28,7 +28,7 @@
 {% assign linkSize = image.links | Size %}
 {% assign firstLink = image.links | First %}
 
-{% if linkSize < 2 and firstLink.display != true %}
+{% if linkSize == 1 and firstLink.display != true %}
   <a href="{{ firstLink.url }}"{% if firstLink.target != "" %} target="{{ firstLink.target }}"{% endif %}>
 {% endif %}
 
@@ -52,6 +52,6 @@
     </div>
   </div>
   
-{% if linkSize < 2 and firstLink.display != true %}
+{% if linkSize == 1 and firstLink.display != true %}
   </a>
 {% endif %}
