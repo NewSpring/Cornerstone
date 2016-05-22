@@ -1,11 +1,77 @@
-<!-- 
+{% comment %}
 
-{% assign heading = "Foo" %}
-{% include '/Themes/CITN/Assets/Lava/citn/adunit.lava' %} 
+  {% capture jsonString %}
+    {
+      "alignment": "",
+      "sectionClass": "",
+      "imageUrl": "//dg0ddngxdz549.cloudfront.net/images/cached/images/remote/http_dg0ddngxdz549.cloudfront.net/newspringnetwork/travel/network.hotel.ad_2x1_1000_501_90_c1.jpg",
+      "overlayClass": "overlay--light overlay--solid",
+      "heading": "Venue",
+      "subHeading": "",
+      "body": "<p>Bacon ipsum dolor amet flank sirloin doner, kielbasa frankfurter short ribs pork loin cupim tri-tip hamburger t-bone prosciutto pastrami. Boudin picanha hamburger, leberkas sausage landjaeger tri-tip.</p>",
+      "links": [
+        {
+          "url": "//google.com",
+          "text": "",
+          "class": "btn btn-primary",
+          "display": false,
+          "target": "_blank"
+        }
+      ]
+    }
+  {% endcapture %}
+  
+  {% include '/Themes/CITN/Assets/Lava/citn/adUnit.lava' %}
 
--->
-<section style="background: #ddd;">
-	<div class="container">
-		<h2>{{ heading }}</h2>
-	</div>
+{% endcomment %}
+
+{% assign adUnit = jsonString | FromJSON %}
+
+{% assign linkSize = adUnit.links | Size %}
+
+<section
+  class="{% if adUnit.imageUrl != '' %} background--fill{% endif %}{% if adUnit.sectionClass != '' %} {{ adUnit.sectionClass }}{% endif %}"
+  {% if adUnit.imageUrl != '' %}
+    style="background-image: url('{{ adUnit.imageUrl }}');"
+  {% endif %}
+>
+  <div class="shell">
+    <div class="row{% if adUnit.overlayClass != '' %} {{ adUnit.overlayClass }}{% endif %}">
+      <div class="col-md-8 center-block pull-none text-{% if adUnit.alignment != '' %}{{ adUnit.alignment }}{% else %}center{% endif %}{% if adUnit.overlayClass != '' %} overlay__item{% endif %}">
+        {% if adUnit.heading != "" %}
+          <h2 class="push-quarter--bottom">
+            {{ adUnit.heading }}
+          </h2>
+        {% endif %}
+        {% if adUnit.subHeading != "" %}
+          <h6>
+            {{ adUnit.subHeading }}
+          </h6>
+        {% endif %}
+        
+        {{ adUnit.body }}
+        
+        {% if adUnit.links | Size > 0 %}
+          <p>
+            {% for link in adUnit.links %}
+              <a
+                class="{{ link.class }}"
+                href="{{ link.url }}"
+                role="button"
+                {% if link.target != '' %}
+                  target="{{ link.target }}"
+                {% endif %}
+              >
+                {% if link.text != '' %}
+                  {{ link.text }}
+                {% else %}
+                  Learn More
+                {% endif %}
+              </a>
+            {% endfor %}
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
 </section>
