@@ -228,6 +228,8 @@ a:hover i.fs {
 // Ratios
 
 .ratio {
+  position: relative;
+  display: block;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -283,8 +285,6 @@ a:hover i.fs {
 
 .ratio--landscape {
   &:extend(.ratio);
-  position: relative;
-  display: block;
   
   &:before {
     &:extend(.ratio:before);

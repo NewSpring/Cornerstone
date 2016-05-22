@@ -33,7 +33,7 @@
 {% endif %}
 
   <div class="ratio--{{ image.ratio }}">
-    <div class="ratio__item floating background--fill{% if overlayClass != '' %} {{ image.overlayClass }}{% endif %}" style="background-image: url({{ image.imageUrl }});">
+    <div class="ratio__item floating background--fill{% if overlayClass != '' %} {{ image.overlayClass }}{% endif %}{% if imageClass != '' %} {{ image.imageClass }}{% endif %}" style="background-image: url({{ image.imageUrl }});">
       {% if image.heading or image.body or image.linkDisplay %}
         <div class="soft floating__item{% if overlayClass != '' %} overlay__item{% endif %}">
           {% if image.heading %}
