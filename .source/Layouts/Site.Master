@@ -53,12 +53,12 @@
     <form id="form1" runat="server">
 
         <!-- Page Header -->
-        <header>
+        <header class="">
 
-            <div class="shell hard">
+            <div class="shell hard--ends">
         
                 <!-- Brand Bar -->
-                <nav class="navbar navbar-inverse navbar-static-top flush">
+                <nav class="navbar navbar-static-top soft-quarter--ends flush">
                     <div class="container-fluid hard--ends">
                         <div class="navbar-header">
                             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
@@ -84,11 +84,8 @@
 
         <asp:ContentPlaceHolder ID="main" runat="server"></asp:ContentPlaceHolder>
 
-        <footer>
-            <div class="container">
-            
-                <hr />
-
+        <footer class="bg-dark flush">
+            <div class="shell soft-half--ends">
                 <div class="row">
                     <div class="col-md-12">
                         <Rock:Zone Name="Footer" runat="server" />
