@@ -35,13 +35,15 @@ main {
     display: block;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    margin-top: 0px;
-    letter-spacing: 0px;
-}
-
 h1, h2, h3, h4, h5, h6, p, ul, ol {
     margin-bottom: @spacing-md-px;
+    letter-spacing: -.3px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0px;
+    font-weight: 700;
+    letter-spacing: -1px;
 }
 
 ul {
@@ -52,7 +54,9 @@ ul {
 // -------------------------
 
 .shell {
-    padding: @spacing-lg-px @spacing-lg-px @spacing-lg-px/2;
+    padding: @spacing-lg-px @spacing-lg-px/2 @spacing-lg-px/2;
+    max-width: 1280px;
+    margin: 0 auto;
 }
 
 .btn {
@@ -96,18 +100,49 @@ a:hover i.fs {
     float: none !important;
 }
 
+.push--top { margin-top: @spacing-lg-px; }
+.push--right { margin-right: @spacing-lg-px; }
+.push--bottom { margin-bottom: @spacing-lg-px; }
+.push--left { margin-left: @spacing-lg-px; }
+.push-half--top { margin-top: @spacing-lg-px/2; }
+.push-half--right { margin-right: @spacing-lg-px/2; }
+.push-half--bottom { margin-bottom: @spacing-lg-px/2; }
+.push-half--left { margin-left: @spacing-lg-px/2; }
+.push-quarter--top { margin-top: @spacing-lg-px/4; }
+.push-quarter--right { margin-right: @spacing-lg-px/4; }
+.push-quarter--bottom { margin-bottom: @spacing-lg-px/4; }
+.push-quarter--left { margin-left: @spacing-lg-px/4; }
+
 .soft { padding: @spacing-lg-px !important; }
-.soft--ends { padding: @spacing-lg-px 0 @spacing-lg-px !important; }
-.soft--sides { padding: 0 @spacing-lg-px 0 !important; }
+.soft--ends { padding-top: @spacing-lg-px !important; padding-bottom: @spacing-lg-px !important; }
+.soft--sides { padding-left: @spacing-lg-px !important; padding-right: @spacing-lg-px !important; }
 .soft--top { padding-top: @spacing-lg-px !important; }
 .soft--right { padding-right: @spacing-lg-px !important; }
 .soft--bottom { padding-bottom: @spacing-lg-px !important; }
 .soft--left { padding-left: @spacing-lg-px !important; }
 
+.soft-half { padding: @spacing-lg-px/2 !important; }
+.soft-half--ends { padding-top: @spacing-lg-px/2 !important; padding-bottom: @spacing-lg-px/2 !important; }
+.soft-half--sides { padding-left: @spacing-lg-px/2 !important; padding-right: @spacing-lg-px/2 !important; }
+.soft-half--top { padding-top: @spacing-lg-px/2 !important; }
+.soft-half--right { padding-right: @spacing-lg-px/2 !important; }
+.soft-half--bottom { padding-bottom: @spacing-lg-px/2 !important; }
+.soft-half--left { padding-left: @spacing-lg-px/2 !important; }
+
+.soft-quarter { padding: @spacing-lg-px/4 !important; }
+.soft-quarter--ends { padding-top: @spacing-lg-px/4 !important; padding-bottom: @spacing-lg-px/4 !important; }
+.soft-quarter--sides { padding-left: @spacing-lg-px/4 !important; padding-right: @spacing-lg-px/4 !important; }
+.soft-quarter--top { padding-top: @spacing-lg-px/4 !important; }
+.soft-quarter--right { padding-right: @spacing-lg-px/4 !important; }
+.soft-quarter--bottom { padding-bottom: @spacing-lg-px/4 !important; }
+.soft-quarter--left { padding-left: @spacing-lg-px/4 !important; }
+
 .background--fill {
     background-size: cover;
     background-position: center;
 }
+
+// Overlays
 
 .overlay--light {
     *:not(.btn) {
@@ -164,6 +199,10 @@ a:hover i.fs {
 // Background Classes
 .bg-primary { 
     background-color: @primary-color;
+
+    a {
+        color: darken(@primary-color, 30%);
+    }
 }
 
 .bg-dark { 
@@ -183,6 +222,7 @@ a {
 
 .btn {
     text-decoration: none;
+    font-size: @font-size-base*.9;
 }
 
 .btn-dark {
@@ -214,10 +254,15 @@ header {
     .login-status {
         float: right;
     }
+}
 
-    .navbar {
-        background-color: @header-bg;
-        border: 0;
+.navbar {
+    border: 0;
+
+    a {
+        text-decoration: none;
+        font-size: @font-size-base*.9;
+        font-weight: 700;
     }
 }
 
@@ -329,11 +374,30 @@ footer {
 
 // Medium devices (desktops, 992px and up)
 @media (min-width: @screen-md-min) {
+    h1 { font-size: @font-size-h1*1.5; }
+    h2 { font-size: @font-size-h2*1.3; }
+    h3 { font-size: @font-size-h3*1.1; }
+    h4 { font-size: @font-size-h4*1.1; }
+    h5 { font-size: @font-size-h5*1.1; }
+    h6 { font-size: @font-size-h6*1.1; }
+
     .shell {
-        padding: @spacing-lg-px*1.5 @spacing-lg-px*1.5 @spacing-lg-px;
+        padding: @spacing-lg-px*2 @spacing-lg-px @spacing-lg-px*1.5;
     }
 }
 
 // Large devices (large desktops, 1200px and up)
 @media (min-width: @screen-lg-min) {
+}
+
+@media (max-width: @screen-sm-max) {
+    .handheld {
+        &-text-center {
+            text-align: center;
+        }
+    }
+
+    .row > div + div {
+        margin-top: @spacing-lg-px;
+    }
 }
