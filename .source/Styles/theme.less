@@ -46,6 +46,20 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: -1px;
 }
 
+h1 {
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
 ul {
     padding-left: @spacing-lg-px/3*2;
 }
@@ -195,6 +209,110 @@ a:hover i.fs {
     z-index: 1;
 }
 
+// Ratios
+
+.ratio {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  
+  &:before {
+    content: "";
+    display: block;
+  }
+}
+
+.ratio__item {
+  display: inline-block;
+  z-index: 1;
+  width:100%;
+  background-size: cover;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  
+  .ratio {
+    
+    &:before {
+      display: none;
+    }
+  }
+  
+  .ratio__item {
+    position: relative;
+  }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  
+  .ratio {
+    
+    &:before {
+      display: none;
+    }
+  }
+  
+  .ratio__item {
+    position: relative;
+  }
+}
+
+.ratio--landscape {
+  &:extend(.ratio);
+  position: relative;
+  display: block;
+  
+  &:before {
+    &:extend(.ratio:before);
+    padding-top: 50%;
+  }
+}
+
+.ratio--square {
+  &:extend(.ratio);
+  
+  &:before {
+    &:extend(.ratio:before);
+    padding-top: 100%;
+  }
+}
+
+.ratio-portrait {
+  &:extend(.ratio);
+  
+  &:before {
+    &:extend(.ratio:before);
+    padding-top: 200%;
+  }
+}
+
+
+// Floating
+
+.floating {
+  text-align: center;
+  
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -.25em;
+  }
+  
+  .floating__item {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
 
 // Background Classes
 .bg-primary { 
