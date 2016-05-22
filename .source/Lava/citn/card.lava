@@ -1,0 +1,78 @@
+{% comment %}
+
+  {% capture jsonString %}
+    {
+      "columnClass": "",
+      "ratio": "landscape",
+      "imageUrl": "//dg0ddngxdz549.cloudfront.net/images/cached/images/remote/http_dg0ddngxdz549.cloudfront.net/newspringnetwork/travel/network.hotel.ad_2x1_1000_501_90_c1.jpg",
+      "heading": "Venue",
+      "body": "<p>Bacon ipsum dolor amet flank sirloin doner, kielbasa frankfurter short ribs pork loin cupim tri-tip hamburger t-bone prosciutto pastrami. Boudin picanha hamburger, leberkas sausage landjaeger tri-tip.</p>",
+      "links": [
+        {
+          "url": "//google.com",
+          "text": "",
+          "class": "btn btn-primary",
+          "display": false,
+          "target": "_blank"
+        }
+      ]
+    }
+  {% endcapture %}
+  
+  {% include '/Themes/CITN/Assets/Lava/citn/card.lava' %}
+
+{% endcomment %}
+
+{% assign card = jsonString | FromJSON %}
+
+{% assign linkSize = card.links | Size %}
+
+<div class="{{ card.columnClass }}">
+
+    {% if card.imageUrl != "" %}
+      {% capture jsonString %}
+        {
+          "ratio": "{{ card.ratio }}",
+          "imageUrl": "{{ card.imageUrl }}"
+        }
+      {% endcapture %}
+      
+      {% include '/Themes/CITN/Assets/Lava/citn/image.lava' %}
+    {% endif %}
+    
+    {% if card.imageUrl != "" %}
+    
+      <div class="card soft--half--top">
+      
+    {% endif %}
+    
+      {% if card.heading != "" %}
+        <h2>{{ card.heading }}</h2>
+      {% endif %}
+      
+      {{ card.body}}
+      
+      {% if card.links | Size > 0 %}
+        <p>
+          {% for link in card.links %}
+            <a
+              class="{% if link.class != '' %}{{ link.class }}{% else %}btn{% endif %}"
+              href="{{ link.url }}"
+              role="button"{% if link.target != '' %}
+              target="{{ link.target }}"{% endif %}
+            >
+              {% if link.text != '' %}
+                {{ link.text }}
+              {% else %}
+                Learn More
+              {% endif %}
+            </a>
+          {% endfor %}
+        </p>
+      {% endif %}
+    {% if card.imageUrl != "" %}
+    
+      </div>
+      
+    {% endif %}
+</div>

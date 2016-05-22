@@ -1,78 +1,57 @@
 {% comment %}
 
-  {% assign ratio = "landscape" %}
-  {% assign imageUrl = "Foo" %}
-  {% assign heading = "Foo" %}
-  {% capture body %}
-    Bar
-  {% endcapture %}
-  {% assign linkUrl = "//google.com" %}
-  {% assign linkText = "Learn More" %}
-  {% assign linkType = "primary" %}
-  {% assign linkDisplay = true %}
-
-  {% include '/Themes/CITN/Assets/Lava/citn/image.lava' %}
-  
   {% capture jsonString %}
-  {
-    "Name": "Ted Decker",
-    "ServingTimes": [
-      {
-        "Date": "Friday 3/25",
-        "Times": [
-          "5:30 pm",
-          "7:00 pm"
-        ]
-      },
-      {
-        "Date": "Saturday 3/26",
-        "Times": [
-          "4:30 pm",
-          "6:00 pm"
-        ]
-      },
-      {
-        "Date": "Sunday 3/27",
-        "Times": [
-          "6:30 am sunrise",
-          "9:00 am",
-          "10:30 am",
-          "12:00 pm"
-        ]
-      }
+    {
+      "ratio": "landscape",
+      "imageUrl": "//dg0ddngxdz549.cloudfront.net/images/cached/images/remote/http_dg0ddngxdz549.cloudfront.net/newspringnetwork/travel/network.hotel.ad_2x1_1000_501_90_c1.jpg",
+      "overlayClass": "overlay--light overlay--solid",
+      "heading": "Venue",
+      "body": "Bacon ipsum dolor amet flank sirloin doner, kielbasa frankfurter short ribs pork loin cupim tri-tip hamburger t-bone prosciutto pastrami. Boudin picanha hamburger, leberkas sausage landjaeger tri-tip.",
+      "links": [
+        {
+          "url": "//google.com",
+          "text": "",
+          "class": "btn btn-primary",
+          "display": false,
+          "target": "_blank"
+        }
       ]
-  }
+    }
   {% endcapture %}
-
-
-  {% assign jsonObject = jsonString | FromJSON %}
-
-  {{ jsonObject.Name }}
+  
+  {% include '/Themes/CITN/Assets/Lava/citn/image.lava' %}
 
 {% endcomment %}
 
-{% if linkUrl %}
-  <a href="{{ linkUrl }}">
+{% assign image = jsonString | FromJSON %}
+
+{% assign linkSize = image.links | Size %}
+{% assign firstLink = image.links | First %}
+
+{% if linkSize < 2 and firstLink.display != true %}
+  <a href="{{ firstLink.url }}"{% if firstLink.target != "" %} target="{{ firstLink.target }}"{% endif %}>
 {% endif %}
 
-  <div class="ratio--{{ ratio }}">
-    <div class="ratio__item floating background--fill" style="background-image: url({{ imageUrl }});">
-      {% if heading or body or linkDisplay %}
-        <div class="soft floating__item">
-          {% if heading %}
-            <h2{% if body or linkDisplay %}{% else %} class="flush"{% endif %}>{{ heading }}</h2>
+  <div class="ratio--{{ image.ratio }}">
+    <div class="ratio__item floating background--fill{% if overlayClass != '' %} {{ image.overlayClass }}{% endif %}" style="background-image: url({{ image.imageUrl }});">
+      {% if image.heading or image.body or image.linkDisplay %}
+        <div class="soft floating__item{% if overlayClass != '' %} overlay__item{% endif %}">
+          {% if image.heading %}
+            <h2{% if image.body or image.linkDisplay %}{% else %} class="flush"{% endif %}>{{ image.heading }}</h2>
           {% endif %}
-          {% if body %}
-            <p>{{ body }}</p>
+          {% if image.body %}
+            <p>{{ image.body }}</p>
           {% endif %}
-          {% if linkUrl and linkDisplay %}
-            <p class="{% if linkClass %}{{ linkClass }}{% else %}btn btn-link{% endif %}">{% if linkText %}{{ linkText }}{% else %} Learn More{% endif %}</p>
-          {% endif %}
+          {% for link in image.links %}
+            {% if link.url and link.display %}
+              <a href="{{ link.url }}" class="{% if link.class != '' %}{{ link.class }}{% else %}btn btn-link{% endif %}"{% if link.target != '' %} target="{{ link.target }}"{% endif %}>{% if link.text != '' %}{{ link.text }}{% else %} Learn More{% endif %}</a>
+            {% endif %}
+          {% endfor %}
         </div>
       {% endif %}
     </div>
   </div>
   
-{% if linkUrl %}
+{% if linkSize < 2 and firstLink.display != true %}
   </a>
 {% endif %}
