@@ -1,0 +1,18 @@
+<p>
+  {% for link in component.links %}
+    <a
+      class="{{ link.class }}"
+      href="{{ link.url }}"
+      role="button"
+      {% if link.target and link.target != '' %}
+        target="{{ link.target }}"
+      {% endif %}
+    >
+      {% if link.text and link.text != "" %}
+        {{ link.text }}
+      {% else %}
+        Learn More
+      {% endif %}
+    </a>
+  {% endfor %}
+</p>
