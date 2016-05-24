@@ -1,0 +1,7 @@
+{% for item in Items %}
+  {% assign tier = item | Attribute:'Tier' %}
+
+  {% if tier == 'Exabyte' %}
+    {{ item.Title }}
+  {% endif %}
+{% endfor %}

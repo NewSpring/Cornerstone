@@ -8,6 +8,7 @@ JSON definitions that are not needed can either be left blank, or removed.
   {% capture jsonString %}
     {
       "alignment": "",
+      "sectionId": "",
       "sectionClass": "",
       "imageUrl": "//dg0ddngxdz549.cloudfront.net/images/cached/images/remote/http_dg0ddngxdz549.cloudfront.net/newspringnetwork/travel/network.hotel.ad_2x1_1000_501_90_c1.jpg",
       "overlayClass": "overlay--light overlay--solid",
@@ -45,6 +46,12 @@ be passed to the markup.
   {% endif %}
 {% endcapture %}
 
+{% capture sectionId %}
+  {% if adUnit.sectionId and adUnit.sectionId != '' %}
+    id="{{ adUnit.sectionId }}"
+  {% endif %}
+{% endcapture %}
+
 {% capture sectionClass %}
   class="
     {% if adUnit.sectionClass and adUnit.sectionClass != '' %}
@@ -71,7 +78,7 @@ be passed to the markup.
 
 {% capture alignment %}
   {% if adUnit.alignment == 'right' %}
-    text-left right-block
+    text-left pull-right
   {% elseif adUnit.alignment != 'left' %}
     center-block text-center
   {% endif %}
@@ -116,6 +123,7 @@ All logic should be defined above.
 {% endcomment %}
 
 <section
+  {{ sectionId }}
   {{ sectionClass }}
   {{ sectionImage }}
 >
