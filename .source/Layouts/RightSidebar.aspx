@@ -3,9 +3,9 @@
 <asp:Content ID="ctMain" ContentPlaceHolderID="main" runat="server">
 
 <section class="bg-dark">
-    <div class="shell soft">
+    <div class="shell soft--ends">
         <!-- Page Title -->
-        <Rock:PageIcon ID="PageIcon" runat="server" /><h1 class="flush"><Rock:PageTitle ID="PageTitle" runat="server" /></h1>
+        <Rock:PageIcon ID="PageIcon" runat="server" /><h1 class="h3-size flush"><Rock:PageTitle ID="PageTitle" runat="server" /></h1>
         <Rock:PageBreadCrumbs ID="PageBreadCrumbs" runat="server" />
     </div>
 </section>

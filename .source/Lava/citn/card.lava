@@ -1,0 +1,96 @@
+{% comment %}
+
+--------------
+Below is the markup that needs to be added to the Rock Block to output this element,
+JSON definitions that are not needed can either be left blank, or removed.
+--------------
+
+  {% capture jsonString %}
+    {
+      "alignment": "",
+      "columnClass": "",
+      "ratio": "landscape",
+      "imageUrl": "//dg0ddngxdz549.cloudfront.net/images/cached/images/remote/http_dg0ddngxdz549.cloudfront.net/newspringnetwork/travel/network.hotel.ad_2x1_1000_501_90_c1.jpg",
+      "heading": "Venue",
+      "body": "<p>Bacon ipsum dolor amet flank sirloin doner, kielbasa frankfurter short ribs pork loin cupim tri-tip hamburger t-bone prosciutto pastrami. Boudin picanha hamburger, leberkas sausage landjaeger tri-tip.</p>",
+      "links": [
+        {
+          "url": "//google.com",
+          "text": "",
+          "class": "btn btn-primary",
+          "hidden": false,
+          "target": "_blank"
+        }
+      ]
+    }
+  {% endcapture %}
+  
+  {% include '/Themes/CITN/Assets/Lava/citn/card.lava' %}
+
+{% endcomment %}
+
+{% comment %}
+--------------
+We use this section to handle logic whose results will
+be passed to the markup.
+--------------
+{% endcomment %}
+
+{% assign card = jsonString | FromJSON %}
+
+{% capture image %}
+  {% if card.imageUrl and card.imageUrl != "" %}
+    {% capture jsonString %}
+      {
+        "ratio": "{{ card.ratio }}",
+        "imageUrl": "{{ card.imageUrl }}"
+      }
+    {% endcapture %}
+    
+    {% include '/Themes/CITN/Assets/Lava/citn/image.lava' %}
+  {% endif %}
+{% endcapture %}
+
+{% capture alignment %}
+  {% if card.alignment and card.alignment != '' %}
+    text-{{ card.alignment }}
+  {% endif %}
+{% endcapture %}
+
+{% capture cardClass %}
+  class="card
+    {% if card.imageUrl and card.imageUrl != '' %}
+      soft-half--top
+    {% endif %}
+    {{ alignment }}
+  "
+{% endcapture %}
+
+{% capture heading %}
+  {% if card.heading and card.heading != "" %}
+    <h2>{{ card.heading }}</h2>
+  {% endif %}
+{% endcapture %}
+
+{% capture links %}
+  {% assign component = card %}
+  {% include '/Themes/CITN/Assets/Lava/citn/components/links.lava' %}
+{% endcapture %}
+
+{% comment %}
+--------------
+This section is strictly reserved for markup of the element.
+All logic should be defined above.
+--------------
+{% endcomment %}
+
+<div class="{{ card.columnClass }}">
+  {{ image }}
+  <div
+    {{ cardClass }}
+  >
+      {{ heading }}
+      {{ card.body}}
+      {{ links }}
+  </div>
+</div>

@@ -4,15 +4,14 @@
 Below is the markup that needs to be added to the Rock Block to output this element,
 JSON definitions that are not needed can either be left blank, or removed.
 --------------
-
+  
   {% capture jsonString %}
     {
       "alignment": "",
       "sectionClass": "",
+      "columnClass": "",
       "imageUrl": "//dg0ddngxdz549.cloudfront.net/images/cached/images/remote/http_dg0ddngxdz549.cloudfront.net/newspringnetwork/travel/network.hotel.ad_2x1_1000_501_90_c1.jpg",
-      "overlayClass": "overlay--light overlay--solid",
       "heading": "Venue",
-      "subHeading": "",
       "body": "<p>Bacon ipsum dolor amet flank sirloin doner, kielbasa frankfurter short ribs pork loin cupim tri-tip hamburger t-bone prosciutto pastrami. Boudin picanha hamburger, leberkas sausage landjaeger tri-tip.</p>",
       "links": [
         {
@@ -26,7 +25,7 @@ JSON definitions that are not needed can either be left blank, or removed.
     }
   {% endcapture %}
   
-  {% include '/Themes/CITN/Assets/Lava/citn/adUnit.lava' %}
+  {% include '/Themes/CITN/Assets/Lava/citn/hero.lava' %}
 
 {% endcomment %}
 
@@ -37,74 +36,61 @@ be passed to the markup.
 --------------
 {% endcomment %}
 
-{% assign adUnit = jsonString | FromJSON %}
-
-{% capture sectionImage %}
-  {% if adUnit.imageUrl and adUnit.imageUrl != '' %}
-    style="background-image: url('{{ adUnit.imageUrl }}');"
-  {% endif %}
-{% endcapture %}
+{% assign hero = jsonString | FromJSON %}
 
 {% capture sectionClass %}
   class="
-    {% if adUnit.sectionClass and adUnit.sectionClass != '' %}
-      {{ adUnit.sectionClass }}
-    {% endif %}
-    {% if sectionImage != '' %}
+    {% if hero.imageUrl and hero.imageUrl != '' %}
+      overlay--light
+      overlay--solid-dark
       background--fill
+    {% elseif hero.sectionClass and hero.sectionClass != '' or hero.overlayClass and hero.overlayClass != '' %}
+      {{ hero.sectionClass }}
+      {{ hero.overlayClass }}
     {% endif %}
   "
 {% endcapture %}
 
-{% capture overlayClass %}
-  {% if adUnit.overlayClass and adUnit.overlayClass != '' %}
-    {{ adUnit.overlayClass }}
+{% capture sectionImage %}
+  {% if hero.imageUrl and hero.imageUrl != '' %}
+    style="background-image: url('{{ hero.imageUrl }}');"
   {% endif %}
 {% endcapture %}
 
 {% capture rowClass %}
   class="
     row
-    {{ overlayClass }}
-  "
-{% endcapture %}
-
-{% capture alignment %}
-  {% if adUnit.alignment == 'right' %}
-    text-left right-block
-  {% elseif adUnit.alignment != 'left' %}
-    center-block text-center
-  {% endif %}
-{% endcapture %}
-
-{% capture columnClass %}
-  class="
-    col-md-8 pull-none
-    {{ alignment }}
-    {% if overlayClass != '' %}
+    {% if hero.imageUrl and hero.imageUrl != '' or hero.overlayClass and hero.overlayClass != '' %}
       overlay__item
     {% endif %}
   "
 {% endcapture %}
 
-{% capture heading %}
-  {% if adUnit.heading and adUnit.heading != "" %}
-    <h2 class="push-quarter--bottom">
-      {{ adUnit.heading }}
-    </h2>
+{% capture heroAlignment %}
+  {% if hero.alignment == 'right' %}
+    right-block text-left
+  {% elseif hero.alignment != 'left' %}
+    center-block pull-none text-center
   {% endif %}
 {% endcapture %}
 
-{% capture subHeading %}
-  {% if adUnit.subHeading and adUnit.subHeading != "" %}
-    <h6>
-      {{ adUnit.subHeading }}
-    </h6>
+{% capture columnClass %}
+  class="
+    col-md-8
+    {{ heroAlignment }}
+  "
+{% endcapture %}
+
+{% capture heading %}
+  {% if hero.heading and hero.heading != '' %}
+    <h1>
+      {{ hero.heading }}
+    </h1>
   {% endif %}
 {% endcapture %}
 
 {% capture links %}
-  {% assign component = adUnit %}
+  {% assign component = hero %}
   {% include '/Themes/CITN/Assets/Lava/citn/components/links.lava' %}
 {% endcapture %}
 
@@ -119,21 +105,17 @@ All logic should be defined above.
   {{ sectionClass }}
   {{ sectionImage }}
 >
-  <div class="shell">
-    <div
-      {{ rowClass }}
-    >
-      <div
-        {{ columnClass }}
-      >
-        
-        {{ heading }}
-        {{ subHeading }}
-        
-        {{ adUnit.body }}
-        
-        {{ links }}
-      </div>
+    <div class="shell">
+        <div
+          {{ rowClass }}
+        >
+            <div
+              {{ columnClass }}
+            >
+                {{ heading }}
+                {{ hero.body }}
+                {{ links }}
+            </div>
+        </div>
     </div>
-  </div>
 </section>

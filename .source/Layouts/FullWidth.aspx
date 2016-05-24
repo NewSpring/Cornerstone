@@ -5,7 +5,7 @@
 <section class="bg-dark">
     <div class="shell soft">
         <!-- Page Title -->
-        <Rock:PageIcon ID="PageIcon" runat="server" /><h1 class="flush"><Rock:PageTitle ID="PageTitle" runat="server" /></h1>
+        <Rock:PageIcon ID="PageIcon" runat="server" /><h1 class="h3-size flush"><Rock:PageTitle ID="PageTitle" runat="server" /></h1>
     </div>
 </section>
 

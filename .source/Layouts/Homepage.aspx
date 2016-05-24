@@ -1,9 +1,27 @@
 ﻿<%@ Page Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" Inherits="Rock.Web.UI.RockPage" %>
 
 <asp:Content ID="ctFeature" ContentPlaceHolderID="feature" runat="server">
+    <Rock:Zone Name="Feature" runat="server" />
+
+</asp:Content>
+
+<asp:Content ID="ctMain" ContentPlaceHolderID="main" runat="server">
+
+    <!-- Ajax Error -->
+    <div class="alert alert-danger ajax-error" style="display:none">
+        <p><strong>Error</strong></p>
+        <span class="ajax-error-message"></span>
+    </div>
+
+    <Rock:Zone Name="Sub Feature" runat="server" />
+    <Rock:Zone Name="Section A" runat="server" />
+    <Rock:Zone Name="Section B" runat="server" />
+    <Rock:Zone Name="Section C" runat="server" />
+    <Rock:Zone Name="Section D" runat="server" />
+
 
 <!-- Ad Unit -->
-<section class="overlay--light overlay--solid-dark background--fill" style="background-image: url('/Themes/Cornerstone/Assets/images/conference.jpg');">
+<!-- <section class="overlay--light overlay--solid-dark background--fill" style="background-image: url('/Themes/Cornerstone/Assets/images/conference.jpg');">
     <div class="shell">
         <div class="row overlay__item">
             <div class="col-md-8 center-block pull-none text-center">
@@ -13,10 +31,10 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- Ad Unit -->
-<section class="background--fill" style="background-image: url('/Themes/Cornerstone/Assets/images/conference-nodes.jpg');">
+<!-- <section class="background--fill" style="background-image: url('/Themes/Cornerstone/Assets/images/conference-nodes.jpg');">
     <div class="shell">
         <div class="row">
             <div class="col-md-8 center-block pull-none text-center">
@@ -27,9 +45,9 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
-<section class="bg-dark">
+<!-- <section class="bg-dark">
     <div class="shell">
         <div class="row push-half--bottom">
             <div class="col-md-6 center-block pull-none text-center">
@@ -54,9 +72,9 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
-<section class="bg-medium">
+<!-- <section class="bg-medium">
     <div class="shell">
         <div class="row push-half--bottom">
             <div class="col-md-8 center-block pull-none text-center">
@@ -84,36 +102,12 @@
                 <p><small><a href="http://www.cfellowshipc.org" target="_blank"><b>Christian Fellowship Church</b></a></small></p>
             </div>
         </div>
-
-        <div class="row">
-            <!-- <div class="col-md-7 col-md-offset-2">
-                <p>"Working with other churches that have already done what you are trying to do, opens doors for you to connect. Helping someone at another church with your knowledge is what God intends the church and it's staff to do for each other, because we're all on the same team, working for the same Master for the same purpose."</p>
-                <h6 class="flush">Mark Rock</h6>
-                <p><small><a href="http://www.lincolnberean.org/" target="_blank">Lincoln Berean Church</a></small></p>
-            </div>
-            <div class="col-md-3">
-                <img src="http://churchitnetwork.com/Content/ExternalSite/People/markr.jpg" alt="" class="img-circle">
-            </div> -->
-            <!-- <div class="col-md-4">
-                <img src="http://churchitnetwork.com/Content/ExternalSite/People/markr.jpg" alt="" class="img-circle push-half--bottom">
-                <p>"Working with other churches that have already done what you are trying to do, opens doors for you to connect. Helping someone at another church with your knowledge is what God intends the church and it's staff to do for each other, because we're all on the same team, working for the same Master for the same purpose."</p>
-                <h6 class="flush">Mark Rock</h6>
-                <p><small><a href="http://www.lincolnberean.org/" target="_blank">Lincoln Berean Church</a></small></p>
-            </div>
-            <div class="col-md-4">
-                <img src="http://churchitnetwork.com/Content/ExternalSite/People/graham.jpg" alt="" class="img-circle push-half--bottom">
-                <p>"This group has been invaluable to me. I learned so much and received so much encouragement through the years. Even when our church budget shrank and we couldn't attend the national events, we attended regional events and shared and supported each other."</p>
-                <h6 class="flush">Nancy Graham</h6>
-                <p><small><a href="http://www.cfellowshipc.org" target="_blank">Christian Fellowship Church</a></small></p>
-            </div> -->
-        </div>
     </div>
-</section>
+</section> -->
 
-<!-- 
-<section>
+<!-- <section>
     <div class="shell hard">
-        <div class="row">
+        <div class="row flush">
             <div class="col-md-6 text-center hard">
               <div class="ratio--landscape ratio--disabled@mobile">
                 <div class="ratio__item floating background--fill" style="background-image: url(//dg0ddngxdz549.cloudfront.net/images/cached/images/remote/http_dg0ddngxdz549.cloudfront.net/newspringnetwork/travel/network.hotel.ad_2x1_1000_501_90_c1.jpg);">
@@ -136,11 +130,9 @@
             </div>
         </div>
     </div>
-</section>
--->
+</section> -->
 
-<!-- 
-<section class="bg-dark">
+<!-- <section class="bg-dark">
     <div class="shell">
         <div class="row">
             <div class="col-md-8 center-block pull-none">
@@ -164,25 +156,6 @@
             </div>
         </div>
     </div>
-</section>
--->
-
-<Rock:Zone Name="Feature" runat="server" />
-
-</asp:Content>
-
-<asp:Content ID="ctMain" ContentPlaceHolderID="main" runat="server">
-    
-<!-- Ajax Error -->
-<div class="alert alert-danger ajax-error" style="display:none">
-    <p><strong>Error</strong></p>
-    <span class="ajax-error-message"></span>
-</div>
-
-<Rock:Zone Name="Sub Feature" runat="server" />
-<Rock:Zone Name="Section A" runat="server" />
-<Rock:Zone Name="Section B" runat="server" />
-<Rock:Zone Name="Section C" runat="server" />
-<Rock:Zone Name="Section D" runat="server" />
-        
+</section> -->
+            
 </asp:Content>

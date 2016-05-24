@@ -2,13 +2,17 @@
 
 <asp:Content ID="ctMain" ContentPlaceHolderID="main" runat="server">
 
-    <main class="container">
-                
-        <!-- Start Content Area -->
-        
+<section class="bg-dark">
+    <div class="shell soft">
         <!-- Page Title -->
-        <Rock:PageIcon ID="PageIcon" runat="server" /> <h1><Rock:PageTitle ID="PageTitle" runat="server" /></h1>
+        <Rock:PageIcon ID="PageIcon" runat="server" /><h1 class="h3-size flush"><Rock:PageTitle ID="PageTitle" runat="server" /></h1>
         <Rock:PageBreadCrumbs ID="PageBreadCrumbs" runat="server" />
+    </div>
+</section>
+
+<section>
+    <div class="shell">                
+        <!-- Start Content Area -->
                     
         <!-- Ajax Error -->
         <div class="alert alert-danger ajax-error" style="display:none">
@@ -53,7 +57,7 @@
         </div>
 
         <!-- End Content Area -->
-
-    </main>
+    </div>
+</section>
 
 </asp:Content>

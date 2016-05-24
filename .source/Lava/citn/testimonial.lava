@@ -1,0 +1,92 @@
+{% comment %}
+
+  {% capture jsonString %}
+    {
+      "columnClass": "col-md-4",
+      "imageUrl": "http://churchitnetwork.com/Content/ExternalSite/People/graham.jpg",
+      "body": "<p>This group has been invaluable to me. I learned so much and received so much encouragement through the years. Even when our church budget shrank and we couldn't attend the national events, we attended regional events and shared and supported each other.</p>",
+      "firstName": "Nancy",
+      "lastName": "Graham",
+      "links": [
+        {
+          "url": "http://www.cfellowshipc.org",
+          "text": "Christian Fellowship Church"
+        }
+      ]
+    }
+  {% endcapture %}
+    
+  {% include '/Themes/CITN/Assets/Lava/citn/testimonial.lava' %}
+
+{% endcomment %}
+
+{% comment %}
+--------------
+We use this section to handle logic whose results will
+be passed to the markup.
+--------------
+{% endcomment %}
+
+{% assign testimonial = jsonString | FromJSON %}
+
+{% capture columnClass %}
+  class="
+    {% if testimonial.columnClass and testimonial.columnClass != '' %}
+      {{ testimonial.columnClass }}
+    {% else %}
+      col-md-4
+    {% endif %}
+  "
+{% endcapture %}
+
+{% capture image %}
+  {% if testimonial.imageUrl != "" %}
+    {% capture jsonString %}
+      {
+        "ratio": "square",
+        "imageUrl": "{{ testimonial.imageUrl }}",
+        "imageClass": "img-circle"
+      }
+    {% endcapture %}
+    
+    <div class="row push-half--bottom">
+      <div class="col-md-7 ">
+        {% include '/Themes/CITN/Assets/Lava/citn/image.lava' %}
+      </div>
+    </div>
+  {% endif %}
+{% endcapture %}
+
+{% capture attribution %}
+  <h6 class="push-quarter--bottom">
+    –&nbsp;{{ testimonial.firstName }} {{ testimonial.lastName }}
+  </h6>
+
+  {% if testimonial.links | Size > 0 %}
+    {% assign link = testimonial.links | First %}
+    <p>
+      <small>
+        <a href="{{ link.url }}" target="_blank">
+          <b>
+            {{ link.text }}
+          </b>
+        </a>
+      </small>
+    </p>
+  {% endif %}
+{% endcapture %}
+
+{% comment %}
+--------------
+This section is strictly reserved for markup of the element.
+All logic should be defined above.
+--------------
+{% endcomment %}
+
+<div
+  {{ columnClass }}
+>
+  {{ image }}
+  {{ testimonial.body }}
+  {{ attribution }}
+</div>

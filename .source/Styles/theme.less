@@ -279,6 +279,22 @@ header {
 .soft-quarter--bottom { padding-bottom: @spacing-lg-px/4 !important; }
 .soft-quarter--left { padding-left: @spacing-lg-px/4 !important; }
 
+.push { margin: @spacing-lg-px !important; }
+.push--ends { margin: @spacing-lg-px 0 @spacing-lg-px !important; }
+.push--sides { margin: 0 @spacing-lg-px 0 !important; }
+.push--top { margin-top: @spacing-lg-px !important; }
+.push--right { margin-right: @spacing-lg-px !important; }
+.push--bottom { margin-bottom: @spacing-lg-px !important; }
+.push--left { margin-left: @spacing-lg-px !important; }
+
+.push-half { margin: @spacing-lg-px / 2 !important; }
+.push-half--ends { margin: @spacing-lg-px / 2 0 @spacing-lg-px / 2 !important; }
+.push-half--sides { margin: 0 @spacing-lg-px / 2 0 !important; }
+.push-half--top { margin-top: @spacing-lg-px / 2 !important; }
+.push-half--right { margin-right: @spacing-lg-px / 2 !important; }
+.push-half--bottom { margin-bottom: @spacing-lg-px / 2 !important; }
+.push-half--left { margin-left: @spacing-lg-px / 2 !important; }
+
 .background--fill {
     background-size: cover;
     background-position: center;
@@ -340,6 +356,8 @@ header {
 // Ratios
 
 .ratio {
+  position: relative;
+  display: block;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -395,8 +413,6 @@ header {
 
 .ratio--landscape {
   &:extend(.ratio);
-  position: relative;
-  display: block;
   
   &:before {
     &:extend(.ratio:before);
@@ -645,12 +661,12 @@ footer {
 // Medium devices (desktops, 992px and up)
 @media (min-width: @screen-md-min) {
 
-    h1 { font-size: @font-size-h1*1.5; }
-    h2 { font-size: @font-size-h2*1.3; }
-    h3 { font-size: @font-size-h3*1.1; }
-    h4 { font-size: @font-size-h4*1.1; }
-    h5 { font-size: @font-size-h5*1.1; }
-    h6 { font-size: @font-size-h6*1.1; }
+    h1, .h1-size { font-size: @font-size-h1*1.5; }
+    h2, .h2-size { font-size: @font-size-h2*1.3; }
+    h3, .h3-size { font-size: @font-size-h3*1.1; }
+    h4, .h4-size { font-size: @font-size-h4*1.1; }
+    h5, .h5-size { font-size: @font-size-h5*1.1; }
+    h6, .h6-size { font-size: @font-size-h6*1.1; }
 
     .shell {
         padding: @spacing-lg-px*1.5 @spacing-lg-px @spacing-lg-px;
@@ -731,7 +747,7 @@ footer {
         }
 
         .dropdown-menu {
-            width: 100%;
+            // width: 100%;
             box-shadow: none;
             border: 0;
         }
