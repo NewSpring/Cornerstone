@@ -19,7 +19,7 @@ JSON definitions that are not needed can either be left blank, or removed.
           "url": "//google.com",
           "text": "",
           "class": "btn btn-primary",
-          "display": false,
+          "hidden": false,
           "target": "_blank"
         }
       ]
@@ -104,10 +104,8 @@ be passed to the markup.
 {% endcapture %}
 
 {% capture links %}
-  {% if adUnit.links | Size > 0 %}
-    {% assign component = adUnit %}
-    {% include '/Themes/CITN/Assets/Lava/citn/components/links.lava' %}
-  {% endif %}
+  {% assign component = adUnit %}
+  {% include '/Themes/CITN/Assets/Lava/citn/components/links.lava' %}
 {% endcapture %}
 
 {% comment %}

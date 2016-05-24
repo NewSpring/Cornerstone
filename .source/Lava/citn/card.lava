@@ -1,7 +1,13 @@
 {% comment %}
 
+--------------
+Below is the markup that needs to be added to the Rock Block to output this element,
+JSON definitions that are not needed can either be left blank, or removed.
+--------------
+
   {% capture jsonString %}
     {
+      "alignment": "",
       "columnClass": "",
       "ratio": "landscape",
       "imageUrl": "//dg0ddngxdz549.cloudfront.net/images/cached/images/remote/http_dg0ddngxdz549.cloudfront.net/newspringnetwork/travel/network.hotel.ad_2x1_1000_501_90_c1.jpg",
@@ -12,7 +18,7 @@
           "url": "//google.com",
           "text": "",
           "class": "btn btn-primary",
-          "display": false,
+          "hidden": false,
           "target": "_blank"
         }
       ]
@@ -23,56 +29,68 @@
 
 {% endcomment %}
 
+{% comment %}
+--------------
+We use this section to handle logic whose results will
+be passed to the markup.
+--------------
+{% endcomment %}
+
 {% assign card = jsonString | FromJSON %}
 
-{% assign linkSize = card.links | Size %}
+{% capture image %}
+  {% if card.imageUrl and card.imageUrl != "" %}
+    {% capture jsonString %}
+      {
+        "ratio": "{{ card.ratio }}",
+        "imageUrl": "{{ card.imageUrl }}"
+      }
+    {% endcapture %}
+    
+    {% include '/Themes/CITN/Assets/Lava/citn/image.lava' %}
+  {% endif %}
+{% endcapture %}
+
+{% capture alignment %}
+  {% if card.alignment and card.alignment != '' %}
+    text-{{ card.alignment }}
+  {% endif %}
+{% endcapture %}
+
+{% capture cardClass %}
+  class="card
+    {% if card.imageUrl and card.imageUrl != '' %}
+      soft-half--top
+    {% endif %}
+    {{ alignment }}
+  "
+{% endcapture %}
+
+{% capture heading %}
+  {% if card.heading and card.heading != "" %}
+    <h2>{{ card.heading }}</h2>
+  {% endif %}
+{% endcapture %}
+
+{% capture links %}
+  {% assign component = card %}
+  {% include '/Themes/CITN/Assets/Lava/citn/components/links.lava' %}
+{% endcapture %}
+
+{% comment %}
+--------------
+This section is strictly reserved for markup of the element.
+All logic should be defined above.
+--------------
+{% endcomment %}
 
 <div class="{{ card.columnClass }}">
-
-    {% if card.imageUrl != "" %}
-      {% capture jsonString %}
-        {
-          "ratio": "{{ card.ratio }}",
-          "imageUrl": "{{ card.imageUrl }}"
-        }
-      {% endcapture %}
-      
-      {% include '/Themes/CITN/Assets/Lava/citn/image.lava' %}
-    {% endif %}
-    
-    {% if card.imageUrl != "" %}
-    
-      <div class="card soft-half--top">
-      
-    {% endif %}
-    
-      {% if card.heading != "" %}
-        <h2>{{ card.heading }}</h2>
-      {% endif %}
-      
+  {{ image }}
+  <div
+    {{ cardClass }}
+  >
+      {{ heading }}
       {{ card.body}}
-      
-      {% if card.links | Size > 0 %}
-        <p>
-          {% for link in card.links %}
-            <a
-              class="{% if link.class != '' %}{{ link.class }}{% else %}btn{% endif %}"
-              href="{{ link.url }}"
-              role="button"{% if link.target != '' %}
-              target="{{ link.target }}"{% endif %}
-            >
-              {% if link.text != '' %}
-                {{ link.text }}
-              {% else %}
-                Learn More
-              {% endif %}
-            </a>
-          {% endfor %}
-        </p>
-      {% endif %}
-    {% if card.imageUrl != "" %}
-    
-      </div>
-      
-    {% endif %}
+      {{ links }}
+  </div>
 </div>

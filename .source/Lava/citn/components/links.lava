@@ -1,18 +1,28 @@
-<p>
-  {% for link in component.links %}
-    <a
-      class="{{ link.class }}"
-      href="{{ link.url }}"
-      role="button"
-      {% if link.target and link.target != '' %}
-        target="{{ link.target }}"
-      {% endif %}
-    >
-      {% if link.text and link.text != "" %}
-        {{ link.text }}
-      {% else %}
-        Learn More
-      {% endif %}
-    </a>
-  {% endfor %}
-</p>
+{% if component.links | Size == 1 %}
+  {% assign firstLink = component.links | First %}
+{% endif %}
+
+{% if component.links | Size > 0 %}
+  {% unless firstLink.hidden == true %}
+    <p>
+      {% for link in component.links %}
+        {% unless link.hidden == true %}
+          <a
+            class="{{ link.class }}"
+            href="{{ link.url }}"
+            role="button"
+            {% if link.target and link.target != '' %}
+              target="{{ link.target }}"
+            {% endif %}
+          >
+            {% if link.text and link.text != "" %}
+              {{ link.text }}
+            {% else %}
+              Learn More
+            {% endif %}
+          </a>
+        {% endunless %}
+      {% endfor %}
+    </p>
+  {% endunless %}
+{% endif %}

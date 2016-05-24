@@ -20,10 +20,26 @@
 
 {% endcomment %}
 
+{% comment %}
+--------------
+We use this section to handle logic whose results will
+be passed to the markup.
+--------------
+{% endcomment %}
+
 {% assign testimonial = jsonString | FromJSON %}
 
-<div class="{{ testimonial.columnClass }}">
+{% capture columnClass %}
+  class="
+    {% if testimonial.columnClass and testimonial.columnClass != '' %}
+      {{ testimonial.columnClass }}
+    {% else %}
+      col-md-4
+    {% endif %}
+  "
+{% endcapture %}
 
+{% capture image %}
   {% if testimonial.imageUrl != "" %}
     {% capture jsonString %}
       {
@@ -34,21 +50,21 @@
     {% endcapture %}
     
     <div class="row push-half--bottom">
-      <div class="col-md-8">
+      <div class="col-md-7 ">
         {% include '/Themes/CITN/Assets/Lava/citn/image.lava' %}
       </div>
     </div>
   {% endif %}
+{% endcapture %}
 
-  {{ testimonial.body }}
-
-  <h6 class="flush">
+{% capture attribution %}
+  <h6 class="push-quarter--bottom">
     –&nbsp;{{ testimonial.firstName }} {{ testimonial.lastName }}
   </h6>
 
   {% if testimonial.links | Size > 0 %}
     {% assign link = testimonial.links | First %}
-    <p class="soft-quarter--top">
+    <p>
       <small>
         <a href="{{ link.url }}" target="_blank">
           <b>
@@ -58,5 +74,19 @@
       </small>
     </p>
   {% endif %}
+{% endcapture %}
 
+{% comment %}
+--------------
+This section is strictly reserved for markup of the element.
+All logic should be defined above.
+--------------
+{% endcomment %}
+
+<div
+  {{ columnClass }}
+>
+  {{ image }}
+  {{ testimonial.body }}
+  {{ attribution }}
 </div>

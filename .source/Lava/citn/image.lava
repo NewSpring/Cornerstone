@@ -1,18 +1,24 @@
 {% comment %}
 
+
+--------------
+Below is the markup that needs to be added to the Rock Block to output this element,
+JSON definitions that are not needed can either be left blank, or removed.
+--------------
+
   {% capture jsonString %}
     {
       "ratio": "landscape",
       "imageUrl": "//dg0ddngxdz549.cloudfront.net/images/cached/images/remote/http_dg0ddngxdz549.cloudfront.net/newspringnetwork/travel/network.hotel.ad_2x1_1000_501_90_c1.jpg",
       "overlayClass": "overlay--light overlay--solid",
       "heading": "Venue",
-      "body": "Bacon ipsum dolor amet flank sirloin doner, kielbasa frankfurter short ribs pork loin cupim tri-tip hamburger t-bone prosciutto pastrami. Boudin picanha hamburger, leberkas sausage landjaeger tri-tip.",
+      "body": "<p>Bacon ipsum dolor amet flank sirloin doner, kielbasa frankfurter short ribs pork loin cupim tri-tip hamburger t-bone prosciutto pastrami. Boudin picanha hamburger, leberkas sausage landjaeger tri-tip.</p>",
       "links": [
         {
           "url": "//google.com",
           "text": "",
           "class": "btn btn-primary",
-          "display": false,
+          "hidden": false,
           "target": "_blank"
         }
       ]
@@ -23,35 +29,101 @@
 
 {% endcomment %}
 
+{% comment %}
+--------------
+We use this section to handle logic whose results will
+be passed to the markup.
+--------------
+{% endcomment %}
+
 {% assign image = jsonString | FromJSON %}
 
-{% assign linkSize = image.links | Size %}
-{% assign firstLink = image.links | First %}
-
-{% if linkSize == 1 and firstLink.display != true %}
-  <a href="{{ firstLink.url }}"{% if firstLink.target != "" %} target="{{ firstLink.target }}"{% endif %}>
-{% endif %}
-
-  <div class="ratio--{{ image.ratio }}">
-    <div class="ratio__item floating background--fill{% if overlayClass != '' %} {{ image.overlayClass }}{% endif %}{% if imageClass != '' %} {{ image.imageClass }}{% endif %}" style="background-image: url({{ image.imageUrl }});">
-      {% if image.heading or image.body or image.linkDisplay %}
-        <div class="soft floating__item{% if overlayClass != '' %} overlay__item{% endif %}">
-          {% if image.heading %}
-            <h2{% if image.body or image.linkDisplay %}{% else %} class="flush"{% endif %}>{{ image.heading }}</h2>
-          {% endif %}
-          {% if image.body %}
-            <p>{{ image.body }}</p>
-          {% endif %}
-          {% for link in image.links %}
-            {% if link.url and link.display %}
-              <a href="{{ link.url }}" class="{% if link.class != '' %}{{ link.class }}{% else %}btn btn-link{% endif %}"{% if link.target != '' %} target="{{ link.target }}"{% endif %}>{% if link.text != '' %}{{ link.text }}{% else %} Learn More{% endif %}</a>
-            {% endif %}
-          {% endfor %}
-        </div>
+{% capture singleLinkOpen %}
+  {% assign firstLink = image.links | First %}
+  {% if image.links | Size == 1 and firstLink.display != true %}
+    <a
+      href="{{ firstLink.url }}"
+      {% if firstLink.target != "" %}
+        target="{{ firstLink.target }}"
       {% endif %}
+    >
+  {% endif %}
+{% endcapture %}
+
+{% capture singleLinkClose %}
+  {% if singleLinkOpen != '' %}
+    </a>
+  {% endif %}
+{% endcapture %}
+
+{% capture overlayClass %}
+  {% if image.overlayClass and image.overlayClass != '' %}
+    {{ image.overlayClass }}
+  {% endif %}
+{% endcapture %}
+
+{% capture imageClass %}
+  {% if image.imageClass and image.imageClass != '' %}
+    {{ image.imageClass }}
+  {% endif %}
+{% endcapture %}
+
+{% capture ratioItemClass %}
+  class="
+    ratio__item floating background--fill
+    {{ overlayClass }}
+    {{ imageClass }}
+  "
+{% endcapture %}
+
+{% capture floatingClass %}
+  {% if image.heading and image.heading != '' or image.body and image.body != '' or image.linkDisplay and image.linkDisplay != '' %}
+    class="
+      soft floating__item
+      {% if overlayClass != '' %}
+        overlay__item
+      {% endif %}
+    "
+  {% endif %}
+{% endcapture %}
+
+{% capture heading %}
+  {% if image.heading %}
+    <h2
+      {% if image.body or image.linkDisplay %}{% else %} class="flush"{% endif %}
+    >
+      {{ image.heading }}
+    </h2>
+  {% endif %}
+{% endcapture %}
+
+{% capture links %}
+  {% assign component = image %}
+  {% include '/Themes/CITN/Assets/Lava/citn/components/links.lava' %}
+{% endcapture %}
+
+{% comment %}
+--------------
+This section is strictly reserved for markup of the element.
+All logic should be defined above.
+--------------
+{% endcomment %}
+
+{{ singleLinkOpen }}
+  <div
+    class="ratio--{{ image.ratio }}"
+  >
+    <div
+      {{ ratioItemClass }}
+      style="background-image: url({{ image.imageUrl }});"
+    >
+      <div
+        {{ floatingClass }}
+      >
+        {{ heading }}
+        {{ image.body }}
+        {{ links }}
+      </div>
     </div>
   </div>
-  
-{% if linkSize == 1 and firstLink.display != true %}
-  </a>
-{% endif %}
+{{ singleLinkClose }}
