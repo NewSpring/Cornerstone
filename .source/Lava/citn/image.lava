@@ -40,7 +40,7 @@ be passed to the markup.
 
 {% capture singleLinkOpen %}
   {% assign firstLink = image.links | First %}
-  {% if image.links | Size == 1 and firstLink.display != true %}
+  {% if image.links | Size == 1 and firstLink.hidden == true %}
     <a
       href="{{ firstLink.url }}"
       {% if firstLink.target != "" %}
