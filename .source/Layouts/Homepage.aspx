@@ -1,23 +1,32 @@
 ﻿<%@ Page Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" Inherits="Rock.Web.UI.RockPage" %>
 
 <asp:Content ID="ctFeature" ContentPlaceHolderID="feature" runat="server">
-    <Rock:Zone Name="Feature" runat="server" />
+
+<section class="bg-medium">
+    <div class="shell">
+        <Rock:Zone Name="Feature" runat="server" />
+    </div>
+</section>
 
 </asp:Content>
 
 <asp:Content ID="ctMain" ContentPlaceHolderID="main" runat="server">
 
-    <!-- Ajax Error -->
-    <div class="alert alert-danger ajax-error" style="display:none">
+<!-- Ajax Error -->
+<div class="alert alert-danger ajax-error" style="display:none">
+<section>
+    <div class="shell">
         <p><strong>Error</strong></p>
         <span class="ajax-error-message"></span>
     </div>
+</section>
+</div>
 
-    <Rock:Zone Name="Sub Feature" runat="server" />
-    <Rock:Zone Name="Section A" runat="server" />
-    <Rock:Zone Name="Section B" runat="server" />
-    <Rock:Zone Name="Section C" runat="server" />
-    <Rock:Zone Name="Section D" runat="server" />
+<Rock:Zone Name="Sub Feature" runat="server" />
+<Rock:Zone Name="Section A" runat="server" />
+<Rock:Zone Name="Section B" runat="server" />
+<Rock:Zone Name="Section C" runat="server" />
+<Rock:Zone Name="Section D" runat="server" />
 
 
 <!-- Ad Unit -->

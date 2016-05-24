@@ -3,10 +3,15 @@
 <asp:Content ID="ctMain" ContentPlaceHolderID="main" runat="server">
 
 <section class="bg-dark">
-    <div class="shell soft">
+    <div class="shell soft--ends">
         <!-- Page Title -->
         <Rock:PageIcon ID="PageIcon" runat="server" /><h1 class="h3-size flush"><Rock:PageTitle ID="PageTitle" runat="server" /></h1>
-        <Rock:PageBreadCrumbs ID="PageBreadCrumbs" runat="server" />
+
+        <!-- Ajax Error -->
+        <div class="alert alert-danger ajax-error" style="display:none">
+            <p><strong>Error</strong></p>
+            <span class="ajax-error-message"></span>
+        </div>
     </div>
 </section>
 
@@ -15,12 +20,6 @@
 <section>
     <div class="shell">
     <!-- Start Content Area -->
-                
-    <!-- Ajax Error -->
-    <div class="alert alert-danger ajax-error" style="display:none">
-        <p><strong>Error</strong></p>
-        <span class="ajax-error-message"></span>
-    </div>
 
     <div class="row">
         <div class="col-md-3">
