@@ -53,31 +53,21 @@
     <form id="form1" runat="server">
 
         <!-- Page Header -->
-        <header class="">
+        <header>
+            <div class="shell hard">
+                
+                    <Rock:Zone Name="Header" runat="server" />
 
-            <div class="shell hard--ends">
-        
-                <!-- Brand Bar -->
-                <nav class="navbar navbar-static-top soft-quarter--ends flush">
-                    <div class="container-fluid hard--ends">
-                        <div class="navbar-header">
-                            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <Rock:Zone Name="Header" runat="server" />
-                        </div>  
-                        <div class="navbar-collapse collapse">   
-                            <!-- Main Navigation -->
-                            <div class="pull-right">
-                                <Rock:Zone Name="Login" runat="server" />
-                            </div>
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <div class="navbar-collapse collapse">
+                        <div class="soft-quarter lg-hard">
+                            <Rock:Zone Name="Login" runat="server" />
                             <Rock:Zone Name="Navigation" runat="server" />
-                        </div>  
+                        </div>
                     </div>
-                </nav>
-
             </div>
-
         </header>
         
         <asp:ContentPlaceHolder ID="feature" runat="server"></asp:ContentPlaceHolder>
