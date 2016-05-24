@@ -167,7 +167,7 @@
 </section>
 -->
 
-<!-- <Rock:Zone Name="Feature" runat="server" /> -->
+<Rock:Zone Name="Feature" runat="server" />
 
 </asp:Content>
 
@@ -179,10 +179,10 @@
     <span class="ajax-error-message"></span>
 </div>
 
-<!-- <Rock:Zone Name="Sub Feature" runat="server" />
+<Rock:Zone Name="Sub Feature" runat="server" />
 <Rock:Zone Name="Section A" runat="server" />
 <Rock:Zone Name="Section B" runat="server" />
 <Rock:Zone Name="Section C" runat="server" />
-<Rock:Zone Name="Section D" runat="server" /> -->
+<Rock:Zone Name="Section D" runat="server" />
         
 </asp:Content>

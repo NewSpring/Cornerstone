@@ -2,55 +2,42 @@
 
 <asp:Content ID="ctMain" ContentPlaceHolderID="main" runat="server">
 
-    <main class="container">
-                
-        <!-- Start Content Area -->
-        
+<section class="bg-dark">
+    <div class="shell soft">
         <!-- Page Title -->
-        <Rock:PageIcon ID="PageIcon" runat="server" /> <h1><Rock:PageTitle ID="PageTitle" runat="server" /></h1>
+        <Rock:PageIcon ID="PageIcon" runat="server" /><h1 class="flush"><Rock:PageTitle ID="PageTitle" runat="server" /></h1>
         <Rock:PageBreadCrumbs ID="PageBreadCrumbs" runat="server" />
-                    
-        <!-- Ajax Error -->
-        <div class="alert alert-danger ajax-error" style="display:none">
-            <p><strong>Error</strong></p>
-            <span class="ajax-error-message"></span>
+    </div>
+</section>
+
+<Rock:Zone Name="Feature" runat="server" />
+
+<section>
+    <div class="shell">
+    <!-- Start Content Area -->
+                
+    <!-- Ajax Error -->
+    <div class="alert alert-danger ajax-error" style="display:none">
+        <p><strong>Error</strong></p>
+        <span class="ajax-error-message"></span>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <Rock:Zone Name="Sidebar 1" runat="server" />
         </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <Rock:Zone Name="Feature" runat="server" />
-            </div>
+        <div class="col-md-9">
+            <Rock:Zone Name="Main" runat="server" />
         </div>
+    </div>
 
-        <div class="row">
-            <div class="col-md-3">
-                <Rock:Zone Name="Sidebar 1" runat="server" />
-            </div>
-            <div class="col-md-9">
-                <Rock:Zone Name="Main" runat="server" />
-            </div>
-        </div>
+    <!-- End Content Area -->
+    </div>
+</section>
 
-        <div class="row">
-            <div class="col-md-12">
-                <Rock:Zone Name="Section A" runat="server" />
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4">
-                <Rock:Zone Name="Section B" runat="server" />
-            </div>
-            <div class="col-md-4">
-                <Rock:Zone Name="Section C" runat="server" />
-            </div>
-            <div class="col-md-4">
-                <Rock:Zone Name="Section D" runat="server" />
-            </div>
-        </div>
-
-        <!-- End Content Area -->
-
-    </main>
+<Rock:Zone Name="Section A" runat="server" />
+<Rock:Zone Name="Section B" runat="server" />
+<Rock:Zone Name="Section C" runat="server" />
+<Rock:Zone Name="Section D" runat="server" />
 
 </asp:Content>
