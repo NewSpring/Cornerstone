@@ -2,11 +2,7 @@
 
 <asp:Content ID="ctFeature" ContentPlaceHolderID="feature" runat="server">
 
-<section class="bg-medium">
-    <div class="shell">
-        <Rock:Zone Name="Feature" runat="server" />
-    </div>
-</section>
+    <Rock:Zone Name="Feature" runat="server" />
 
 </asp:Content>
 
