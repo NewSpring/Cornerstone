@@ -52,6 +52,12 @@ be passed to the markup.
   {% endif %}
 {% endcapture %}
 
+{% capture overlayClass %}
+  {% if adUnit.overlayClass and adUnit.overlayClass != '' %}
+    {{ adUnit.overlayClass }}
+  {% endif %}
+{% endcapture %}
+
 {% capture sectionClass %}
   class="
     {% if adUnit.sectionClass and adUnit.sectionClass != '' %}
@@ -60,19 +66,16 @@ be passed to the markup.
     {% if sectionImage != '' %}
       background--fill
     {% endif %}
+    {{ overlayClass }}
   "
-{% endcapture %}
-
-{% capture overlayClass %}
-  {% if adUnit.overlayClass and adUnit.overlayClass != '' %}
-    {{ adUnit.overlayClass }}
-  {% endif %}
 {% endcapture %}
 
 {% capture rowClass %}
   class="
     row
-    {{ overlayClass }}
+    {% if overlayClass != '' %}
+      overlay__item
+    {% endif %}
   "
 {% endcapture %}
 
@@ -88,9 +91,6 @@ be passed to the markup.
   class="
     col-md-8 pull-none
     {{ alignment }}
-    {% if overlayClass != '' %}
-      overlay__item
-    {% endif %}
   "
 {% endcapture %}
 
