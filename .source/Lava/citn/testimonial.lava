@@ -5,8 +5,7 @@
       "columnClass": "col-md-4",
       "imageUrl": "http://churchitnetwork.com/Content/ExternalSite/People/graham.jpg",
       "body": "<p>This group has been invaluable to me. I learned so much and received so much encouragement through the years. Even when our church budget shrank and we couldn't attend the national events, we attended regional events and shared and supported each other.</p>",
-      "firstName": "Nancy",
-      "lastName": "Graham",
+      "name": "Nancy",
       "links": [
         {
           "url": "http://www.cfellowshipc.org",
@@ -16,7 +15,7 @@
     }
   {% endcapture %}
     
-  {% include '/Themes/CITN/Assets/Lava/citn/testimonial.lava' %}
+  {% include '~~/Assets/Lava/citn/testimonial.lava' %}
 
 {% endcomment %}
 
@@ -59,7 +58,7 @@ be passed to the markup.
 
 {% capture attribution %}
   <h6 class="push-quarter--bottom">
-    –&nbsp;{{ testimonial.firstName }} {{ testimonial.lastName }}
+    –&nbsp;{{ testimonial.name }}
   </h6>
 
   {% if testimonial.links | Size > 0 %}

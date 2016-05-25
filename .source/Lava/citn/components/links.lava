@@ -2,8 +2,8 @@
   {% assign firstLink = component.links | First %}
 {% endif %}
 
-{% if component.links | Size > 0 %}
-  {% unless firstLink.hidden == true %}
+{% if component.links and component.links | Size > 0 %}3
+  {% unless firstLink.hidden == true or firstLink.url == '' %}
     <p>
       {% for link in component.links %}
         {% unless link.hidden == true %}
