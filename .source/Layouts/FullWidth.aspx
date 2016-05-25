@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" Inherits="Rock.Web.UI.RockPage" %>
 
 <asp:Content ID="ctMain" ContentPlaceHolderID="main" runat="server">
-    
+
 <section class="bg-dark">
     <div class="shell soft">
         <!-- Page Title -->
@@ -17,7 +17,7 @@
 
 <Rock:Zone Name="Feature" runat="server" />
 
-<Rock:Zone Name="Main" runat="server" />
+<Rock:Zone Name="Main" runat="server" />  
 
 <Rock:Zone Name="Section A" runat="server" />
 <Rock:Zone Name="Section B" runat="server" />
