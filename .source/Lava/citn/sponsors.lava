@@ -1,0 +1,74 @@
+{% comment %}
+-------------
+Loop for Exabyte tier sponsors
+-------------
+{% endcomment %}
+<div class="row">
+  {% for item in Items %}
+    {% assign tier = item | Attribute:'Tier' %}
+    {% if tier == 'Exabyte' %}
+      <div class="col-md-6 center-block">
+        <a href="{{ item.WebsiteUrl | StripHtml }}" target="_blank">
+          <img
+            src="{{ item | Attribute: 'Logo', 'Url' }}"
+            title="{{ item.Title }}"
+          />
+        </a>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% comment %}
+-------------
+Loop for Petabyte tier sponsors
+-------------
+{% endcomment %}
+<div class="row">
+  {% for item in Items %}
+    {% assign tier = item | Attribute:'Tier' %}
+    {% if tier == 'Petabyte' %}
+      <div class="col-md-3">
+        <a href="{{ item.WebsiteUrl | StripHtml }}" target="_blank">
+          {{ item.Logo }}
+        </a>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% comment %}
+-------------
+Loop for Terabyte tier sponsors
+-------------
+{% endcomment %}
+<div class="row push--bottom">
+  {% for item in Items %}
+    {% assign tier = item | Attribute:'Tier' %}
+    {% if tier == 'Terabyte' %}
+      <div class="col-md-2">
+        <a href="{{ item.WebsiteUrl | StripHtml }}" target="_blank">
+          {{ item.Logo }}
+        </a>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% comment %}
+-------------
+Loop for Gigabyte tier sponsors
+-------------
+{% endcomment %}
+<div class="row">
+  {% for item in Items %}
+    {% assign tier = item | Attribute:'Tier' %}
+    {% if tier == 'Gigabyte' %}
+      <div class="col-md-3">
+        <a href="{{ item.WebsiteUrl | StripHtml }}" target="_blank">
+          {{ item.Title }}
+        </a>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
