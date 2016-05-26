@@ -55,13 +55,17 @@ h6 {
   font-weight: 700;
 }
 
-ul {
+ul, ol {
     padding-left: @spacing-lg-px/3;
+
+    li {
+        margin-bottom: @spacing-lg-px/3;
+    }
 }
 
 img {
     display: inline-block;
-    width: 100%;
+    max-width: 100%;
 }
 
 // 2. Bootstrap Overrides
@@ -140,6 +144,7 @@ header {
 
     & > li {
         float: none;
+        margin-bottom: 0;
 
         .divider {
             display: none;
@@ -192,6 +197,8 @@ header {
 
 .dropdown-menu {    
     & > li {
+        margin-bottom: 0;
+
         & > a {
             font-size: @font-size-base;
             font-weight: 700;

@@ -89,7 +89,7 @@ be passed to the markup.
 
 {% capture columnClass %}
   class="
-    col-md-8 pull-none
+    col-md-7 pull-none
     {{ alignment }}
   "
 {% endcapture %}
