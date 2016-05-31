@@ -36,6 +36,13 @@ main {
     display: block;
 }
 
+h1, .h1-size { font-size: @font-size-h1; }
+h2, .h2-size { font-size: @font-size-h2; }
+h3, .h3-size { font-size: @font-size-h3; }
+h4, .h4-size { font-size: @font-size-h4; }
+h5, .h5-size { font-size: @font-size-h5; }
+h6, .h6-size { font-size: @font-size-h6; }
+
 h1, h2, h3, h4, h5, h6, p, ul, ol {
     margin-bottom: @spacing-md-px;
     letter-spacing: -.3px;
@@ -57,6 +64,11 @@ h6 {
 
 ul, ol {
     padding-left: @spacing-lg-px/3;
+
+    &.list--plain {
+        list-style: none;
+        padding-left: 0;
+    }
 }
 
 img {
@@ -525,6 +537,17 @@ a {
     }
 }
 
+// Inputs
+
+input {
+    border: 1px solid darken(@medium-color, 20%);
+
+    &:focus {
+        border-color: @primary-color;
+        outline: 0;
+    }
+}
+
 .page-icon {
     display: none;
 }
@@ -817,5 +840,13 @@ footer {
     .row > div + div[class^="col"] {
         margin-top: @spacing-lg-px;
     }
+
+    .soft { padding: @spacing-lg-px/2 !important; }
+    .soft--ends { padding-top: @spacing-lg-px/2 !important; padding-bottom: @spacing-lg-px/2 !important; }
+    .soft--sides { padding-left: @spacing-lg-px/2 !important; padding-right: @spacing-lg-px/2 !important; }
+    .soft--top { padding-top: @spacing-lg-px/2 !important; }
+    .soft--right { padding-right: @spacing-lg-px/2 !important; }
+    .soft--bottom { padding-bottom: @spacing-lg-px/2 !important; }
+    .soft--left { padding-left: @spacing-lg-px/2 !important; }
 
 }
