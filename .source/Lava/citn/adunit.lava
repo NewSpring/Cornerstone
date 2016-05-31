@@ -7,27 +7,35 @@ JSON definitions that are not needed can either be left blank, or removed.
 
   {% capture jsonString %}
     {
+      // Accepts left, right, or center.
       "alignment": "",
+      // Section ID allows you to link directly to this section
       "sectionId": "",
+      // Classes for the section itself, used mainly for colored backgrounds
+      // i.e. "bg-dark"
       "sectionClass": "",
-      "imageUrl": "//dg0ddngxdz549.cloudfront.net/images/cached/images/remote/http_dg0ddngxdz549.cloudfront.net/newspringnetwork/travel/network.hotel.ad_2x1_1000_501_90_c1.jpg",
-      "overlayClass": "overlay--light overlay--solid",
-      "heading": "Venue",
+      "imageUrl": "",
+      "heading": "",
       "subHeading": "",
-      "body": "<p>Bacon ipsum dolor amet flank sirloin doner, kielbasa frankfurter short ribs pork loin cupim tri-tip hamburger t-bone prosciutto pastrami. Boudin picanha hamburger, leberkas sausage landjaeger tri-tip.</p>",
+      // Body should contain associated html markup, i.e. <p> tags
+      "body": "",
+      // This is an array that can accept multiple links
       "links": [
         {
-          "url": "//google.com",
+          "url": "",
           "text": "",
-          "class": "btn btn-primary",
-          "hidden": false,
+          // Use the bootstrap classes for the type of button or link
+          // you'd like to create
+          "class": "",
+          // use this if you want to open the link in a new window
+          // i.e. _blank
           "target": "_blank"
         }
       ]
     }
   {% endcapture %}
   
-  {% include '/Themes/CITN/Assets/Lava/citn/adUnit.lava' %}
+  {% include '~~/Assets/Lava/citn/adUnit.lava' %}
 
 {% endcomment %}
 
