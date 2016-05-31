@@ -67,6 +67,10 @@ img {
 // 2. Bootstrap Overrides
 // -------------------------
 
+.inline-block {
+  display: inline-block;
+}
+
 .shell {
     position: relative;
     padding: @spacing-lg-px @spacing-lg-px/2 @spacing-lg-px/2;
@@ -455,7 +459,6 @@ header {
   }
 }
 
-
 // Floating
 
 .floating {
@@ -777,12 +780,38 @@ footer {
 
 @media (max-width: @screen-sm-max) {
 
-    .handheld {
-        &-text-center {
-            text-align: center;
-        }
+  .handheld {
+    &-text-center {
+      text-align: center;
     }
+  }
+  
+  .sm-ratio-landscape {
+    &:extend(.ratio);
 
+    &:before {
+      &:extend(.ratio:before);
+      padding-top: 50%;
+    }
+  }
+  
+  .sm-ratio-portrait {
+    &:extend(.ratio);
+
+    &:before {
+      &:extend(.ratio:before);
+      padding-top: 200%;
+    }
+  }
+  
+  .sm-ratio-square {
+    &:extend(.ratio);
+
+    &:before {
+      &:extend(.ratio:before);
+      padding-top: 100%;
+    }
+  }
 }
 
 @media (max-width: @screen-xs-max) {
