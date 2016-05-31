@@ -508,7 +508,7 @@ a {
     color: @light-color;
     background-color: @dark-color;
 
-    &:hover {
+    &:hover, &:focus {
         background-color: darken(@dark-color, 5%);
         color: @light-color;
     }
@@ -518,7 +518,7 @@ a {
     color: @light-color;
     background-color: darken(@primary-color, 20%);
 
-    &:hover {
+    &:hover, &:focus {
         background-color: darken(@primary-color, 25%);
         color: @light-color;
     }
