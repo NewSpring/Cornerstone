@@ -1,21 +1,59 @@
 {% comment %}
+--------------
+Below is the markup that needs to be added to the Rock Block to output this element,
+JSON definitions that are not needed can either be left blank, or removed.
+--------------
+  
+  {% capture jsonString %}
+    {
+      "columnClass": "col-md-6",
+      // Accepts Text or Image
+      "type": "",
+      "rowLength": ""
+    }
+  {% endcapture %}
+  
+  {% include '~~/Assets/Lava/citn/sponsors.lava' %}
+
+{% endcomment %}
+
+{% comment %}
+--------------
+We use this section to handle logic whose results will
+be passed to the markup.
+--------------
+{% endcomment %}
+
+{% assign sponsor = jsonString | FromJSON %}
+
+{% comment %}
 -------------
-Loop for Exabyte tier sponsors
+Loop for tier sponsors
 -------------
 {% endcomment %}
-<div class="row">
+
+<div class="row text-center push-half--bottom">
   {% for item in Items %}
-    {% assign tier = item | Attribute:'Tier' %}
-    {% if tier == 'Exabyte' %}
-      <div class="col-md-6 center-block">
-        <a href="{{ item.WebsiteUrl | StripHtml }}" target="_blank">
+    {% assign arraySize = Items | Size %}
+    {% assign arrayDivisibleBy = arraySize | DividedBy:sponsor.rowLength %}
+    <div class="
+      {{ sponsor.columnClass }}
+      push-half--bottom
+      {% unless arrayDivisibleBy == sponsor.rowLength %}
+        pull-none inline-block
+      {% endunless %}
+    ">
+      <a href="{{ item.WebsiteUrl | StripHtml }}" target="_blank">
+        {% if sponsor.type == 'Text' %}
+          {{ item.Title }}
+        {% else %}
           <img
-            src="{{ item | Attribute: 'Logo', 'Url' }}"
+            src="{{ item | Attribute: 'Image', 'Url' }}"
             title="{{ item.Title }}"
           />
-        </a>
-      </div>
-    {% endif %}
+        {% endif %}
+      </a>
+    </div>
   {% endfor %}
 </div>
 
@@ -23,10 +61,10 @@ Loop for Exabyte tier sponsors
 -------------
 Loop for Petabyte tier sponsors
 -------------
-{% endcomment %}
-<div class="row">
+
+<div class="row push-half--bottom">
   {% for item in Items %}
-    {% assign tier = item | Attribute:'Tier' %}
+    {% assign tier = item | Attribute: 'Tier' %}
     {% if tier == 'Petabyte' %}
       <div class="col-md-3">
         <a href="{{ item.WebsiteUrl | StripHtml }}" target="_blank">
@@ -37,14 +75,13 @@ Loop for Petabyte tier sponsors
   {% endfor %}
 </div>
 
-{% comment %}
 -------------
 Loop for Terabyte tier sponsors
 -------------
-{% endcomment %}
-<div class="row push--bottom">
+
+<div class="row push-half--bottom">
   {% for item in Items %}
-    {% assign tier = item | Attribute:'Tier' %}
+    {% assign tier = item | Attribute: 'Tier' %}
     {% if tier == 'Terabyte' %}
       <div class="col-md-2">
         <a href="{{ item.WebsiteUrl | StripHtml }}" target="_blank">
@@ -55,14 +92,13 @@ Loop for Terabyte tier sponsors
   {% endfor %}
 </div>
 
-{% comment %}
 -------------
 Loop for Gigabyte tier sponsors
 -------------
-{% endcomment %}
+
 <div class="row">
   {% for item in Items %}
-    {% assign tier = item | Attribute:'Tier' %}
+    {% assign tier = item | Attribute: 'Tier' %}
     {% if tier == 'Gigabyte' %}
       <div class="col-md-3">
         <a href="{{ item.WebsiteUrl | StripHtml }}" target="_blank">
@@ -72,3 +108,5 @@ Loop for Gigabyte tier sponsors
     {% endif %}
   {% endfor %}
 </div>
+
+{% endcomment %}
