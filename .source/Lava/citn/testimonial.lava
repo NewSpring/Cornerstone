@@ -1,34 +1,18 @@
-{% for item in Items %}
-    {% capture jsonString %}
-        {
-          "columnClass": "col-md-4",
-          "imageUrl": "{{item | Attribute: 'Image', 'Url' }}",
-          "body": "{{ item.Content | Escape }}",
-          "name": "{{ item.Title }}",
-          "links": [
-            {
-              "url": "{{ item.LinkURL | StripHtml }}",
-              "text": "{{ item.LinkText }}"
-            }
-          ]
-        }
-    {% endcapture %}
-    
-    {% include '~~/Assets/Lava/citn/testimonial.lava' %}
-{% endfor %}
-
 {% comment %}
 
   {% capture jsonString %}
     {
-      "columnClass": "col-md-4",
-      "imageUrl": "http://churchitnetwork.com/Content/ExternalSite/People/graham.jpg",
-      "body": "<p>This group has been invaluable to me. I learned so much and received so much encouragement through the years. Even when our church budget shrank and we couldn't attend the national events, we attended regional events and shared and supported each other.</p>",
-      "name": "Nancy",
+      // Specify the bootstrap column classes to be used
+      // on each testimonial in the loop.
+      "columnClass": "",
+      "imageUrl": "",
+      "body": "",
+      "name": "",
+      // This array should only contain one link
       "links": [
         {
-          "url": "http://www.cfellowshipc.org",
-          "text": "Christian Fellowship Church"
+          "url": "",
+          "text": ""
         }
       ]
     }

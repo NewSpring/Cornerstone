@@ -6,9 +6,14 @@ JSON definitions that are not needed can either be left blank, or removed.
   
   {% capture jsonString %}
     {
-      "columnClass": "col-md-6",
-      // Accepts Text or Image
+      // Specify the bootstrap column classes to be used
+      // on each item in the loop.
+      "columnClass": "",
+      // Accepts text or image
+      // default is image
       "type": "",
+      // Enter the number of items that would be contained
+      // in each row based on the column class at desktop
       "rowLength": ""
     }
   {% endcapture %}
