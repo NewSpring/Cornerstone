@@ -46,7 +46,21 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%# ResolveRockUrl("~/Content/ExternalSite/Icons/touch-icon-iphone-retina.png", true) %>">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%# ResolveRockUrl("~/Content/ExternalSite/Icons/touch-icon-ipad.png", true) %>">
     <link rel="apple-touch-icon-precomposed" href="<%# ResolveRockUrl("~/Content/ExternalSite/Icons/touch-icon-iphone.png", true) %>">
-    
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="<%# Rock.Web.Cache.GlobalAttributesCache.Read().GetValue( "OrganizationName" ) %>" />
+    <meta property="og:description" content="<%# Rock.Web.Cache.GlobalAttributesCache.Read().GetValue( "OrganizationDescription" ) %>" />
+    <meta property="og:url" content="<%# Rock.Web.Cache.GlobalAttributesCache.Read().GetValue( "OrganizationWebsite" ) %>" />
+    <meta property="og:image" content="<%# Rock.Web.Cache.GlobalAttributesCache.Read().GetValue( "OrganizationImage" ) %>" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:title" content="<%# Rock.Web.Cache.GlobalAttributesCache.Read().GetValue( "OrganizationName" ) %>">
+    <meta name="twitter:description" content="<%# Rock.Web.Cache.GlobalAttributesCache.Read().GetValue( "OrganizationDescription" ) %>">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:src" content="<%# Rock.Web.Cache.GlobalAttributesCache.Read().GetValue( "OrganizationImage" ) %>">
+    <meta name="twitter:site" content="<%# Rock.Web.Cache.GlobalAttributesCache.Read().GetValue( "OrganizationTwitter" ) %>">
+    <meta name="twitter:creator" content="<%# Rock.Web.Cache.GlobalAttributesCache.Read().GetValue( "OrganizationTwitter" ) %>">
+
 </head>
 <body>
 
