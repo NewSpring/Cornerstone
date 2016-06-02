@@ -73,7 +73,9 @@ be passed to the markup.
     {% if card.imageUrl and card.imageUrl != '' %}
       soft-half--top
     {% endif %}
-    {{ card.cardClass }}
+    {% if card.cardOpaque == true %}
+      card--opaque
+    {% endif %}
     {{ alignment }}
   "
 {% endcapture %}
