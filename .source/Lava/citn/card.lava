@@ -15,6 +15,7 @@ JSON definitions that are not needed can either be left blank, or removed.
       // Defines the class(es) for the image
       // i.e. "ratio--landscape sm-ratio--square"
       "ratioClass": "",
+      "cardClass": "",
       "imageUrl": "",
       "heading": "",
       // Body should contain associated html markup, i.e. <p> tags
@@ -72,6 +73,7 @@ be passed to the markup.
     {% if card.imageUrl and card.imageUrl != '' %}
       soft-half--top
     {% endif %}
+    {{ card.cardClass }}
     {{ alignment }}
   "
 {% endcapture %}
