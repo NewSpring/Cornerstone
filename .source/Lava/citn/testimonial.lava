@@ -45,7 +45,7 @@ be passed to the markup.
   {% if testimonial.imageUrl != "" %}
     {% capture jsonString %}
       {
-        "ratio": "square",
+        "ratioClass": "ratio--square sm-ratio--square",
         "imageUrl": "{{ testimonial.imageUrl }}",
         "imageClass": "img-circle"
       }

@@ -79,6 +79,10 @@ img {
 // 2. Bootstrap Overrides
 // -------------------------
 
+.indicates-required {
+  margin-bottom: @spacing-lg-px;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -537,6 +541,18 @@ a {
     }
 }
 
+// Cards
+.card {
+    &.card--opaque {
+        padding: @spacing-lg-px;
+        padding-bottom: 0;
+        overflow: hidden;
+        background-color: @light-color;
+        border-radius: 2px;
+        box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    }
+}
+
 // Inputs
 
 input {
@@ -569,15 +585,43 @@ header {
     }
 }
 
-// Cards
-.card {
-    &.card--opaque {
-        padding: @spacing-lg-px;
-        padding-bottom: 0;
-        overflow: hidden;
-        background-color: @light-color;
-        border-radius: 2px;
-        box-shadow: 0 1px 2px rgba(0,0,0,.2);
+
+.nav--vertical {
+
+  a {
+    text-decoration: none;
+  }
+}
+
+// homepage items
+#announcement-rotator {
+    margin: 0 -@grid-gutter-width/2 @spacing-lg-px;
+
+    .item {
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.announcement-list {
+    .announcement {
+        margin: 0 auto @spacing-lg-px;
+        max-width: 390px;
+    }
+
+    .announcement-title {
+        margin: @spacing-sm-px 0;
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+.announcement-detail {
+    img {
+        width: 100%;
     }
 }
 
