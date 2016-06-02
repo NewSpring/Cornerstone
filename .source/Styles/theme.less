@@ -544,7 +544,7 @@ a {
 // Cards
 .card {
     &.card--opaque {
-        padding: @spacing-lg-px;
+        padding: @spacing-lg-px/2;
         padding-bottom: 0;
         overflow: hidden;
         background-color: @light-color;
@@ -876,9 +876,13 @@ footer {
 
 @media (max-width: @screen-xs-max) {
 
-  .row > div + div[class^="col"] {
-    margin-top: @spacing-lg-px;
-  }
+  // .row > div + div[class^="col"] {
+  //   margin-top: @spacing-lg-px/2;
+
+  //   &:last-of-type {
+  //       margin-bottom: @spacing-lg-px/2;
+  //   }
+  // }
     
   .xs-ratio--landscape {
     &:extend(.ratio);
