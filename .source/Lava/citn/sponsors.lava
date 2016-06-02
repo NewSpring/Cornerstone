@@ -9,12 +9,19 @@ JSON definitions that are not needed can either be left blank, or removed.
       // Specify the bootstrap column classes to be used
       // on each item in the loop.
       "columnClass": "",
+      "heading": "",
       // Accepts text or image
       // default is image
       "type": "",
       // Enter the number of items that would be contained
       // in each row based on the column class at desktop
-      "rowLength": ""
+      "rowLength": "",
+      "imageUrl": "",
+      "link": [
+        {
+          "url": ""
+        }
+      ]
     }
   {% endcapture %}
   
@@ -30,88 +37,47 @@ be passed to the markup.
 {% endcomment %}
 
 {% assign sponsor = jsonString | FromJSON %}
+{% assign arraySize = Items | Size %}
+{% assign arrayDivisibleBy = arraySize | DividedBy:sponsor.rowLength %}
+{% assign sponsorLink = sponsor.link | First %}
+
+{% capture centerColumns %}
+  {% if '{{ arrayDivisibleBy | Minus:sponsor.rowLength }}' != 0 or sponsor.rowLength == 1 %}
+    pull-none inline-block
+  {% endif %}
+{% endcapture %}
+
+{% capture textType %}
+  {% if sponsor.type == 'Text' %}
+    text-left
+  {% endif %}
+{% endcapture %}
+
+{% capture sponsorContent %}
+  {% if sponsor.type == 'Text' %}
+    {{ sponsor.heading }}
+  {% else %}
+    <img
+      src="{{ sponsor.imageUrl }}"
+      title="{{ sponsor.heading }}"
+    />
+  {% endif %}
+{% endcapture %}
 
 {% comment %}
--------------
-Loop for tier sponsors
--------------
+--------------
+This section is strictly reserved for markup of the element.
+All logic should be defined above.
+--------------
 {% endcomment %}
 
-<div class="row text-center push-half--bottom">
-  {% for item in Items %}
-    {% assign arraySize = Items | Size %}
-    {% assign arrayDivisibleBy = arraySize | DividedBy:sponsor.rowLength %}
-    <div class="
-      {{ sponsor.columnClass }}
-      push-half--bottom
-      {% unless arrayDivisibleBy == sponsor.rowLength %}
-        pull-none inline-block
-      {% endunless %}
-    ">
-      <a href="{{ item.WebsiteUrl | StripHtml }}" target="_blank">
-        {% if sponsor.type == 'Text' %}
-          {{ item.Title }}
-        {% else %}
-          <img
-            src="{{ item | Attribute: 'Image', 'Url' }}"
-            title="{{ item.Title }}"
-          />
-        {% endif %}
-      </a>
-    </div>
-  {% endfor %}
+<div class="
+  {{ sponsor.columnClass }}
+  push-half--bottom
+  {{ centerColumns }}
+  {{ textType }}
+">
+  <a href="{{ sponsorLink.url }}" target="_blank">
+    {{ sponsorContent }}
+  </a>
 </div>
-
-{% comment %}
--------------
-Loop for Petabyte tier sponsors
--------------
-
-<div class="row push-half--bottom">
-  {% for item in Items %}
-    {% assign tier = item | Attribute: 'Tier' %}
-    {% if tier == 'Petabyte' %}
-      <div class="col-md-3">
-        <a href="{{ item.WebsiteUrl | StripHtml }}" target="_blank">
-          {{ item.Logo }}
-        </a>
-      </div>
-    {% endif %}
-  {% endfor %}
-</div>
-
--------------
-Loop for Terabyte tier sponsors
--------------
-
-<div class="row push-half--bottom">
-  {% for item in Items %}
-    {% assign tier = item | Attribute: 'Tier' %}
-    {% if tier == 'Terabyte' %}
-      <div class="col-md-2">
-        <a href="{{ item.WebsiteUrl | StripHtml }}" target="_blank">
-          {{ item.Logo }}
-        </a>
-      </div>
-    {% endif %}
-  {% endfor %}
-</div>
-
--------------
-Loop for Gigabyte tier sponsors
--------------
-
-<div class="row">
-  {% for item in Items %}
-    {% assign tier = item | Attribute: 'Tier' %}
-    {% if tier == 'Gigabyte' %}
-      <div class="col-md-3">
-        <a href="{{ item.WebsiteUrl | StripHtml }}" target="_blank">
-          {{ item.Title }}
-        </a>
-      </div>
-    {% endif %}
-  {% endfor %}
-</div>
-
-{% endcomment %}
