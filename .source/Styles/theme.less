@@ -553,7 +553,9 @@ a {
     &.card--opaque {
         padding: @spacing-lg-px/2;
         padding-bottom: 0;
-        margin-bottom: @spacing-lg-px/2;
+        margin-bottom: @spacing-lg-px/4;
+        margin-left: -@spacing-lg-px/4;
+        margin-right: -@spacing-lg-px/4;
         overflow: hidden;
         background-color: @light-color;
         border-radius: 2px;
@@ -884,13 +886,13 @@ footer {
 
 @media (max-width: @screen-xs-max) {
 
-  // .row > div + div[class^="col"] {
-  //   margin-top: @spacing-lg-px/2;
-
-  //   &:last-of-type {
-  //       margin-bottom: @spacing-lg-px/2;
-  //   }
-  // }
+  .row > div + div[class^="col"] {
+    &:last-of-type {
+        .card {
+            margin-bottom: @spacing-lg-px/2;
+        }
+    }
+  }
     
   .xs-ratio--landscape {
     &:extend(.ratio);
