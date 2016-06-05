@@ -47,6 +47,10 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%# ResolveRockUrl("~/Content/ExternalSite/Icons/touch-icon-ipad.png", true) %>">
     <link rel="apple-touch-icon-precomposed" href="<%# ResolveRockUrl("~/Content/ExternalSite/Icons/touch-icon-iphone.png", true) %>">
 
+    <meta name="twitter:creator" content="@citrt">
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image">
+
 </head>
 <body>
 
