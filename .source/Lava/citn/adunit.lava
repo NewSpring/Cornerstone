@@ -146,7 +146,7 @@ All logic should be defined above.
         {{ heading }}
         {{ subHeading }}
         
-        {{ adUnit.body }}
+        {{ adUnit.body | HtmlDecode }}
         
         {{ links }}
       </div>

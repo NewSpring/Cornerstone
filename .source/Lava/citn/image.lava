@@ -132,7 +132,7 @@ All logic should be defined above.
         {{ floatingClass }}
       >
         {{ heading }}
-        {{ image.body }}
+        {{ image.body | HtmlDecode }}
         {{ links }}
       </div>
     </div>
