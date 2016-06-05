@@ -104,7 +104,7 @@ All logic should be defined above.
     {{ cardClass }}
   >
       {{ heading }}
-      {{ card.body}}
+      {{ card.body | HtmlDecode }}
       {{ links }}
   </div>
 </div>
