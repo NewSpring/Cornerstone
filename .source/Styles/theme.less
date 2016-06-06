@@ -531,6 +531,10 @@ pre {
 .bg-dark { 
     background-color: @dark-color;
     color: @light-color;
+
+    .card--opaque {
+        color: @dark-color;
+    }
 }
 
 .bg-medium { 
@@ -574,8 +578,6 @@ a {
         padding: @spacing-lg-px/2;
         padding-bottom: 0;
         margin-bottom: @spacing-lg-px/2;
-        // margin-left: -@spacing-lg-px/4;
-        // margin-right: -@spacing-lg-px/4;
         overflow: hidden;
         background-color: @light-color;
         border-radius: 2px;
