@@ -48,7 +48,7 @@
     <link rel="apple-touch-icon-precomposed" href="<%# ResolveRockUrl("~/Content/ExternalSite/Icons/touch-icon-iphone.png", true) %>">
     
     <meta property="og:image" content="<%# Rock.Web.Cache.GlobalAttributesCache.Read().GetValue( "OrganizationImage" ) %>" />
-    <meta name="twitter:creator" content="@citrt">
+    <meta name="twitter:creator" content="<%# Rock.Web.Cache.GlobalAttributesCache.Read().GetValue( "OrganizationTwitter" ) %>">
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image">
 
