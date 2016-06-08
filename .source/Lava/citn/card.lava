@@ -82,7 +82,7 @@ be passed to the markup.
 
 {% capture heading %}
   {% if card.heading and card.heading != "" %}
-    <h2 class="h3-size">{{ card.heading }}</h2>
+    <h2 class="h4-size">{{ card.heading }}</h2>
   {% endif %}
 {% endcapture %}
 
