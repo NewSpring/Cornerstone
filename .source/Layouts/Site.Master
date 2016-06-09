@@ -112,7 +112,7 @@
     </form>
 
 <script type="text/javascript">
-  var _sf_async_config = { uid: <%# Rock.Web.Cache.GlobalAttributesCache.Read().GetValue( "OrganizationChartbeatID" ) %>, domain: '<%# Rock.Web.Cache.GlobalAttributesCache.Read().GetValue( "OrganizationDomain" ) %>', useCanonical: true };
+  var _sf_async_config = { uid: 36438, domain: 'churchitnetwork.com', useCanonical: true };
   (function() {
     function loadChartbeat() {
       window._sf_endpt = (new Date()).getTime();
