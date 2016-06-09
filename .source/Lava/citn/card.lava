@@ -54,11 +54,24 @@ be passed to the markup.
     {% capture jsonString %}
       {
         "ratioClass": "{{ card.ratioClass }}",
-        "imageUrl": "{{ card.imageUrl }}"
+        "imageUrl": "{{ card.imageUrl }}",
+        {% if card.links %}
+        "links": [
+          {% for link in card.links %}
+            {
+              "url": "{{ link.url }}",
+              "target": "{{ link.target }}",
+              "hidden": true
+            }{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ]
+        {% endif %}
       }
     {% endcapture %}
     
-    {% include '/Themes/CITN/Assets/Lava/citn/image.lava' %}
+    <div class="card--image">
+      {% include '/Themes/CITN/Assets/Lava/citn/image.lava' %}
+    </div>
   {% endif %}
 {% endcapture %}
 
@@ -69,7 +82,7 @@ be passed to the markup.
 {% endcapture %}
 
 {% capture cardClass %}
-  class="card
+  class="card--content
     {% if card.imageUrl and card.imageUrl != '' %}
       soft-half--top
     {% endif %}
@@ -98,7 +111,7 @@ All logic should be defined above.
 --------------
 {% endcomment %}
 
-<div class="{{ card.columnClass }}">
+<div class="{{ card.columnClass }} card">
   {{ image }}
   <div
     {{ cardClass }}

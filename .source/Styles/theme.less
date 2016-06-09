@@ -64,9 +64,9 @@ h6 {
 
 .label {
   font-size: 0.6em;
-  vertical-align: top;
-  margin-left: @spacing-lg-px/6;
   letter-spacing: 0.15px;
+  top: -4px;
+  position: relative;
 }
 
 ul, ol {
@@ -104,6 +104,18 @@ img {
 .btn {
     font-weight: 700;
     border-width: 0;
+
+    &.btn-text {
+      padding: 0;
+
+      &:after {
+        content: '\f054';
+        font-family: 'fontawesome';
+        font-size: 0.75em;
+        margin-left: @spacing-lg-px/7.5;
+        font-weight: 100;
+      }
+    }
 }
 
 header {
@@ -598,14 +610,22 @@ a {
 
 // Cards
 .card {
-    &.card--opaque {
-        padding: @spacing-lg-px/2;
-        padding-bottom: 0;
-        margin-bottom: @spacing-lg-px/2;
-        overflow: hidden;
-        background-color: @light-color;
-        border-radius: 2px;
-    }
+  margin-bottom: @spacing-lg-px/2;
+
+  .card--content {
+    padding-bottom: 0;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+
+  .card--image + .card--content {
+    border-radius: 0 0 2px 2px;
+  }
+
+  .card--opaque {
+    background-color: @light-color;
+    padding: @spacing-lg-px/2 @spacing-lg-px/2 0 @spacing-lg-px/2;
+  }
 }
 
 // Inputs
@@ -879,11 +899,123 @@ footer {
 }
 
 @media (max-width: @screen-sm-max) {
-
   .handheld {
     &-text-center {
       text-align: center;
     }
+  }
+
+  .handheld-ratio--landscape {
+    &:extend(.ratio);
+
+    &:before {
+      &:extend(.ratio:before);
+      padding-top: 50%;
+      display: block;
+    }
+    
+    & > .ratio__item {
+      position: absolute;
+    }
+  }
+  
+  .handheld-ratio--portrait {
+    &:extend(.ratio);
+
+    &:before {
+      &:extend(.ratio:before);
+      padding-top: 200%;
+      display: block;
+    }
+    
+    & > .ratio__item {
+      position: absolute;
+    }
+  }
+  
+  .handheld-ratio--square {
+    &:extend(.ratio);
+
+    &:before {
+      &:extend(.ratio:before);
+      display: block;
+      padding-top: 100%;
+    }
+    
+    & > .ratio__item {
+      position: absolute;
+    }
+  }
+
+  .handheld-flush { margin: 0 }
+  .handheld-flush--top { margin-top: 0 }
+  .handheld-flush--bottom { margin-bottom: 0 }
+  .handheld-flush--left { margin-left: 0 }
+  .handheld-flush--right { margin-right: 0 }
+
+  .handheld-push { margin: @spacing-lg-px }
+  .handheld-push--top { margin-top: @spacing-lg-px }
+  .handheld-push--bottom { margin-bottom: @spacing-lg-px }
+  .handheld-push--left { margin-left: @spacing-lg-px }
+  .handheld-push--right { margin-right: @spacing-lg-px }
+  .handheld-push--ends {
+    margin-top: @spacing-lg-px;
+    margin-bottom: @spacing-lg-px;
+  }
+  .handheld-push--sides {
+    margin-left: @spacing-lg-px;
+    margin-right: @spacing-lg-px;
+  }
+
+  .handheld-push-half { margin: @spacing-lg-px/2 }
+  .handheld-push-half--top { margin-top: @spacing-lg-px/2 }
+  .handheld-push-half--bottom { margin-bottom: @spacing-lg-px/2 }
+  .handheld-push-half--left { margin-left: @spacing-lg-px/2 }
+  .handheld-push-half--right { margin-right: @spacing-lg-px/2 }
+  .handheld-push-half--ends {
+    margin-top: @spacing-lg-px/2;
+    margin-bottom: @spacing-lg-px/2;
+  }
+  .handheld-push-half--sides {
+    margin-left: @spacing-lg-px/2;
+    margin-right: @spacing-lg-px/2;
+  }
+}
+
+@media (min-width: @screen-xs-max) and (max-width: @screen-sm-max) {
+
+  .sm-flush { margin: 0 }
+  .sm-flush--top { margin-top: 0 }
+  .sm-flush--bottom { margin-bottom: 0 }
+  .sm-flush--left { margin-left: 0 }
+  .sm-flush--right { margin-right: 0 }
+
+  .sm-push { margin: @spacing-lg-px }
+  .sm-push--top { margin-top: @spacing-lg-px }
+  .sm-push--bottom { margin-bottom: @spacing-lg-px }
+  .sm-push--left { margin-left: @spacing-lg-px }
+  .sm-push--right { margin-right: @spacing-lg-px }
+  .sm-push--ends {
+    margin-top: @spacing-lg-px;
+    margin-bottom: @spacing-lg-px;
+  }
+  .sm-push--sides {
+    margin-left: @spacing-lg-px;
+    margin-right: @spacing-lg-px;
+  }
+
+  .sm-push-half { margin: @spacing-lg-px/2 }
+  .sm-push-half--top { margin-top: @spacing-lg-px/2 }
+  .sm-push-half--bottom { margin-bottom: @spacing-lg-px/2 }
+  .sm-push-half--left { margin-left: @spacing-lg-px/2 }
+  .sm-push-half--right { margin-right: @spacing-lg-px/2 }
+  .sm-push-half--ends {
+    margin-top: @spacing-lg-px/2;
+    margin-bottom: @spacing-lg-px/2;
+  }
+  .sm-push-half--sides {
+    margin-left: @spacing-lg-px/2;
+    margin-right: @spacing-lg-px/2;
   }
   
   .sm-ratio--landscape {
@@ -939,8 +1071,41 @@ footer {
     }
   }
 
+  .xs-flush { margin: 0 }
+  .xs-flush--top { margin-top: 0 }
+  .xs-flush--bottom { margin-bottom: 0 }
+  .xs-flush--left { margin-left: 0 }
+  .xs-flush--right { margin-right: 0 }
+
+  .xs-push { margin: @spacing-lg-px }
+  .xs-push--top { margin-top: @spacing-lg-px }
+  .xs-push--bottom { margin-bottom: @spacing-lg-px }
+  .xs-push--left { margin-left: @spacing-lg-px }
+  .xs-push--right { margin-right: @spacing-lg-px }
+  .xs-push--ends {
+    margin-top: @spacing-lg-px;
+    margin-bottom: @spacing-lg-px;
+  }
+  .xs-push--sides {
+    margin-left: @spacing-lg-px;
+    margin-right: @spacing-lg-px;
+  }
+
+  .xs-push-half { margin: @spacing-lg-px/2 }
+  .xs-push-half--top { margin-top: @spacing-lg-px/2 }
+  .xs-push-half--bottom { margin-bottom: @spacing-lg-px/2 }
+  .xs-push-half--left { margin-left: @spacing-lg-px/2 }
+  .xs-push-half--right { margin-right: @spacing-lg-px/2 }
+  .xs-push-half--ends {
+    margin-top: @spacing-lg-px/2;
+    margin-bottom: @spacing-lg-px/2;
+  }
+  .xs-push-half--sides {
+    margin-left: @spacing-lg-px/2;
+    margin-right: @spacing-lg-px/2;
+  }
+
   .label {
-    vertical-align: middle;
     margin-left: 0;
   }
     
@@ -986,12 +1151,12 @@ footer {
     }
   }
 
-    .soft { padding: @spacing-lg-px/2 !important; }
-    .soft--ends { padding-top: @spacing-lg-px/2 !important; padding-bottom: @spacing-lg-px/2 !important; }
-    .soft--sides { padding-left: @spacing-lg-px/2 !important; padding-right: @spacing-lg-px/2 !important; }
-    .soft--top { padding-top: @spacing-lg-px/2 !important; }
-    .soft--right { padding-right: @spacing-lg-px/2 !important; }
-    .soft--bottom { padding-bottom: @spacing-lg-px/2 !important; }
-    .soft--left { padding-left: @spacing-lg-px/2 !important; }
+  .soft { padding: @spacing-lg-px/2 !important; }
+  .soft--ends { padding-top: @spacing-lg-px/2 !important; padding-bottom: @spacing-lg-px/2 !important; }
+  .soft--sides { padding-left: @spacing-lg-px/2 !important; padding-right: @spacing-lg-px/2 !important; }
+  .soft--top { padding-top: @spacing-lg-px/2 !important; }
+  .soft--right { padding-right: @spacing-lg-px/2 !important; }
+  .soft--bottom { padding-bottom: @spacing-lg-px/2 !important; }
+  .soft--left { padding-left: @spacing-lg-px/2 !important; }
 
 }
